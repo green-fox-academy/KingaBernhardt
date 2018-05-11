@@ -8,14 +8,17 @@ body {  background-image: url(topography/topography.png);
 }
 
 .topbar {
-	padding: 10px 0px 10px 0px;
 	background-color: #333333;
-	display: inline-block;
 	width: 100%;
+	height: 10%;
+	display: inline-block;
+
 }
 .link {
 	float: right;
-	padding: 50px 0;
+	display: inline-block;
+	padding: 2% 10%;
+	
 }
 
 .divider {
@@ -23,8 +26,9 @@ body {  background-image: url(topography/topography.png);
 }
 
 .pic {
-	padding: 10%;
-	margin: auto;
+	margin: 0;
+	padding: 0.4% 10%;
+	display: inline-block;
 }
 
 h1 {

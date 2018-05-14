@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sum_methods", "sum_methods\sum_methods.csproj", "{9199FA15-70DC-4F94-B961-6C03CE011AAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9199FA15-70DC-4F94-B961-6C03CE011AAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9199FA15-70DC-4F94-B961-6C03CE011AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9199FA15-70DC-4F94-B961-6C03CE011AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9199FA15-70DC-4F94-B961-6C03CE011AAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89210DF5-724E-426E-9594-C494B1360BF3}
+	EndGlobalSection
+EndGlobal

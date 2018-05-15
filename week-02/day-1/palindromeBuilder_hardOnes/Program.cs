@@ -6,7 +6,19 @@ namespace palindromeBuilder_hardOnes
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string animal = "giraffe";
+            Console.WriteLine(CreatePalindrome(animal));
+            Console.ReadLine();
+        }
+        public static string CreatePalindrome (string potentialPalindrome)
+        {
+            string palindrome = potentialPalindrome;
+
+            for (int i = palindrome.Length - 1; i >= 0 ; i--)
+            {
+                palindrome += potentialPalindrome[i];
+            }
+            return palindrome;
         }
     }
 }

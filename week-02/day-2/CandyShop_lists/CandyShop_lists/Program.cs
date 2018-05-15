@@ -31,7 +31,7 @@ namespace CandyShop_lists
             {
                 if (candy[i].GetType() == typeof(int))
                 {
-                    output.Append("\"Crossiant\", ");
+                    output.Append("\"Croissant\", ");
                 }
                 else if (candy[i].GetType() == typeof(bool))
                 {

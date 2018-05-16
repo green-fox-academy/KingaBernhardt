@@ -1,0 +1,2 @@
+﻿This is were we try to copy one file to an other.
+Have a nice day.

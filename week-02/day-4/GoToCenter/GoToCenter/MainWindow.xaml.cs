@@ -15,11 +15,22 @@ namespace GoToCenter
     {
         public MainWindow()
         {
+            var x = 100;
+            var y = 300;
             InitializeComponent();
-            var foxDraw = new FoxDraw(canvas);
-
+            ThreeLinesLoop(x,y);
+            
         }
-        public static string 
+        public void ThreeLinesLoop(int x, int y)
+        {
+
+            var foxDraw = new FoxDraw(canvas);
+            for (int i = 1; i < 4; i++)
+            {
+                foxDraw.DrawLine(x * i, y * i, canvas.Width / 2, canvas.Height / 2);
+
+            }
+        }
     }
 
 }

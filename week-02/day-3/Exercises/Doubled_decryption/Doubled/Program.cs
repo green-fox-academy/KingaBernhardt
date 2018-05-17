@@ -12,10 +12,11 @@ namespace Doubled
         {
             string path = @"C:\Users\kinga\OneDrive\Desktop\Green Fox Academy\greenfox\KingaBernhardt\week-02\day-3\Exercises\Doubled_decryption\Doubled\duplicated-chars.txt";
             Decode(path);
+            Console.ReadKey();
         }
         public static void Decode(string path)
         {
-            string[] content =
+            string[] content = File.ReadAllLines(path);
             List<char> chars = new List<char>();
             for (int i=0; i < content.Length; i++)
             {
@@ -31,8 +32,12 @@ namespace Doubled
                         chars.Add(shiftedChar);
                     }
                 }
+                chars.Add('\n');
             }
-            chars.Add('\n');
+            foreach (var ch in chars)
+            {
+                Console.Write(ch);
+            }
         }
     }
 }

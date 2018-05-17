@@ -14,18 +14,20 @@ namespace Logs
         // Write a function that returns the GET / POST request ratio.
 
         {
-            foreach (var item in IpAddress("log.txt"))
+            string path = @"C:\Users\kinga\OneDrive\Desktop\Green Fox Academy\greenfox\KingaBernhardt\week-02\day-3\Exercises\Logs_core\Logs\log.txt";
+            Console.WriteLine(Log(path));
+
+            foreach (var item in IpAddress(path))
             {
                 Console.WriteLine(item);
             }
-            Console.WriteLine(Log());
             Console.ReadLine();
         }
-        public static string Log()
+        public static string Log( string logGet)
         {
             int getAmount = 0;
             int postAmount = 0;
-            foreach (string line in File.ReadAllLines(@"C:\Users\kinga\OneDrive\Desktop\Green Fox Academy\greenfox\KingaBernhardt\week-02\day-3\Exercises\Logs_core\Logs\log.txt"))
+            foreach (string line in File.ReadAllLines(logGet))
             {
                 if (line.Contains("GET"))
                 {
@@ -40,14 +42,14 @@ namespace Logs
             return "The GET and POST ratio is : " + getAmount + "/" + postAmount;
         }
 
-        public static List<string> IpAddress(string path)
+        public static List<string> IpAddress(string IpGet)
         {
-            string[] wholeMessages = File.ReadAllLines(@"C:\Users\kinga\OneDrive\Desktop\Green Fox Academy\greenfox\KingaBernhardt\week-02\day-3\Exercises\Logs_core\Logs\log.txt");
+            string[] wholeMessages = File.ReadAllLines(IpGet);
             List<string> listOfUniq = new List<string>();
 
             for (int i = 0; i < wholeMessages.Length; i++)
             {
-                wholeMessages[i] = wholeMessages[i].Substring(26, 11);
+                wholeMessages[i] = wholeMessages[i].Substring(27, 11);
             
                 if (!listOfUniq.Contains(wholeMessages[i]))
                 {

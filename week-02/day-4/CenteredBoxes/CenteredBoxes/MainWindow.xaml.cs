@@ -18,17 +18,20 @@ namespace CenteredBoxes
         {
             InitializeComponent();
             int a = 35;
-            double squareStartPointX = (canvas.Width - a) / 2;
-            double squareStartPointY = (canvas.Height - a) / 2;
             var foxDraw = new FoxDraw(canvas);
-            Boxes(a, squareStartPointX, squareStartPointY);
+            
+
+            Boxes(a);
         }
-        public void Boxes(int squareSide, double startpointX, double startPointY)
+        public void Boxes(int squareSide)
         {
             var foxDraw = new FoxDraw(canvas);
+           
             for (int i = 1; i < 4; i++)
             {
-                foxDraw.DrawRectangle(startpointX-squareSide, (startPointY-squareSide)*i, squareSide, squareSide);
+                foxDraw.FillColor(Colors.Transparent);
+                foxDraw.DrawRectangle(canvas.Width / 2 - squareSide / 2, canvas.Height / 2 - squareSide / 2, squareSide, squareSide);
+                squareSide += 50;
             }
         }
     }

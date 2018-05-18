@@ -13,13 +13,11 @@ namespace LinePlay
         {
             InitializeComponent();
             foxDraw = new FoxDraw(canvas);
-            
-            foxDraw.StrokeColor(Colors.Aqua);
             int step = 3;
+            foxDraw.StrokeColor(Colors.Aqua);
             Line(step);
             foxDraw.StrokeColor(Colors.Red);
-            Lines2(step);
-            
+            Lines2(step);   
         }
         public void Line(int step)
         {
@@ -37,14 +35,6 @@ namespace LinePlay
                 foxDraw.DrawLine(foxDraw.Canvas.Width-i*step2,foxDraw.Canvas.Height, 0, foxDraw.Canvas.Height-i*step2);
                 
                 }
-            /*
-            for (int i = 0; i <= 16; i++)
-            {
-                foxDraw.DrawLine(0, 0, xPoint, 450);
-                xPoint += 50;
-            }
-            */
-
         }
     }
 }

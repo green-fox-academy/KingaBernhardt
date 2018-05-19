@@ -16,20 +16,18 @@ namespace matrix_twodimensional_arrays
     {
         static void Main(string[] args)
         {
-            int[,] twoDimensional = new int[4, 4]
+            for (int i = 0; i < 4; i ++)
             {
-                { 1, 0, 0, 0 },
-                { 0, 1, 0, 0 },
-                { 0, 0, 1, 0 },
-                { 0, 0, 0, 1 }
-            };
-            for (int i = 0; i < twoDimensional.GetLength(0); i ++)
-            {
-                for (int j = 0; j < twoDimensional.GetLength(1); j++)
-
+                for (int j = 0; j < 4; j++)
                 {
-                   Console.Write(" {0}", twoDimensional[i, j]);
-
+                    if (i == j)
+                    {
+                        Console.Write("1");
+                    }
+                    else
+                    {
+                        Console.Write("0");
+                    }
                 }
                 Console.WriteLine();
             }

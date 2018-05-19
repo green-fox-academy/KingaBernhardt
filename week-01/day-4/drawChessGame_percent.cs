@@ -6,7 +6,6 @@ namespace drawChessTable_percent
     {
         static void Main(string[] args)
         {
-
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 0; j < 4; j++)
@@ -18,10 +17,8 @@ namespace drawChessTable_percent
                 {
                     Console.Write(" %");
                 }
-                Console.WriteLine();
-
+                Console.WriteLine()
             }
-            Console.ReadLine();
             Console.ReadLine();
         }
     }

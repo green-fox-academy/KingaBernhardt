@@ -13,18 +13,14 @@ namespace AppendLetter_lists
 
         {
             var far = new List<string> { "kuty", "macsk", "kacs", "rók", "halacsk" };
-
-
             foreach (var item in AppendA(far))
             {
                 Console.WriteLine(item);
             }
             Console.ReadLine();
-            
         }
         public static List<string> AppendA(List<string> far)
         {
-
             for (int i = 0; i < far.Count; i++)
             {
                 far[i] += "a";

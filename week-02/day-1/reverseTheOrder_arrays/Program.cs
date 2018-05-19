@@ -15,15 +15,10 @@ namespace reverseTheOrder_arrays
             int[] tempAj = new int[aj.Length];
             for (int i = 0; i < aj.Length; i++)
             {
-                tempAj[i] = aj[i];
-            }
-            for (int i = 0; i < aj.Length; i++)
-            {
-                aj[i] = tempAj[aj.Length - i - 1];
-                Console.WriteLine(aj[i]);
+                tempAj[i] = aj[aj.Length - i - 1];
+                Console.WriteLine(tempAj[i]);
             }
             Console.ReadLine();
-
         }
     }
 }

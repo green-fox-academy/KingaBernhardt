@@ -5,14 +5,17 @@ namespace doubleItems_arrays
     class Program
     {
         static void Main(string[] args)
-        {
-            int[] numList= new int[] { 3, 4, 5, 6, 7 };
-            for (int i = 0; i < numList.Length; i++)
-            {
-                int[] doubledNumList = new int[5];
-                doubledNumList[i] = numList[i] * 2;
-                Console.WriteLine(doubledNumList[i]);
+        // - Create an array variable named `numList`
+        //   with the following content: `[3, 4, 5, 6, 7]`
+        // - Double all the values in the array
 
+        {
+            int[] numbersOfArray= new int[] { 3, 4, 5, 6, 7 };
+            int[] doubleNumber = new int[numbersOfArray.Length];
+            for (int i = 0; i < numbersOfArray.Length; i++)
+            {
+                doubleNumber[i] = numbersOfArray[i] * 2;
+                Console.WriteLine(doubleNumber[i]);
             }
             Console.ReadLine();
         }

@@ -6,23 +6,19 @@ namespace sumAndAverageOfIntegers
     class Program
     {
         private static object sumOfLength;
-
         static void Main(string[] args)
         {
-            Console.Write("How many numbers would you like to enter? ");
-            int numberOfIntegers = int.Parse(Console.ReadLine());
-            double sumOfNumbers = 0;
+            Console.Write("How many numbers would you like to enter?");
+            int numbersGivenbyUser = int.Parse(Console.ReadLine());
+            double sumOfGivenNumbers = 0;
 
-            for (int i = 0; i < numberOfIntegers; i++)
+            for (int i = 0; i < numbersGivenbyUser; i++)
             {
                 Console.Write("Please enter a number: ");
-                sumOfNumbers += double.Parse(Console.ReadLine());
-
+                sumOfGivenNumbers += double.Parse(Console.ReadLine());
             }
-
-            double averageOfIntegers = sumOfNumbers / numberOfIntegers;
-            Console.WriteLine("Sum: " + sumOfNumbers + ", Average: " + averageOfIntegers);
-
+            double averageOfGivenNumbers = sumOfGivenNumbers / numbersGivenbyUser;
+            Console.WriteLine("Sum: " + sumOfGivenNumbers + ", Average: " + averageOfGivenNumbers);
             Console.ReadLine();
         }
     }

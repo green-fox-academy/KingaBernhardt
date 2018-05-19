@@ -6,13 +6,13 @@ namespace doubling_methods
     {
         static void Main(string[] args)
         {
-            int baseNum = 123;
-            Console.WriteLine(Doubling(baseNum));
+            int givenNumber = 123;
+            Console.WriteLine(Doubling(givenNumber));
             Console.ReadLine();
         }
-        public static double Doubling ( double baseNum)
+        public static double Doubling ( double givenNumber)
         {
-            return baseNum + baseNum;
+            return givenNumber *4;
         }
     }
 }

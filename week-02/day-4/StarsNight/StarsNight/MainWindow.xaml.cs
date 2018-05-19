@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
 using FoxDrawNameSpace;
 
@@ -9,27 +10,39 @@ namespace StarsNight
 
     public partial class MainWindow : Window
     {
+        FoxDraw foxDraw;
+        Random random;
+
         public MainWindow()
         {
             InitializeComponent();
-            var foxDraw = new FoxDraw(canvas);
-            Random = new Random();
-            Random positionRandom = new Random();
-            foxDraw.BackgroundColor(Colors.Black);
-            foxDraw.FillColor(Colors.Yellow);
-            
+            foxDraw = new FoxDraw(canvas);
+            random = new Random();
         }
-        public void DrawManyRandomStars(int many)
+
+        public void DrawManyRandomStars(int numberOfStars)
         {
-            byte randomColor = byte(Random.Next(255);
-            FoxDraw.StrokeColor(Colors.Black)
             foxDraw.BackgroundColor(Colors.Black);
-            foxDraw.FillColor(Colors.FromRgb());
-            for (int i = 0; i < 200; i++)
+            foxDraw.StrokeColor(Colors.Black);
+
+            for (int i = 0; i < numberOfStars; i++)
             {
-                foxDraw.DrawRectangle(positionRandom.Next((int)canvas.Width - 7), positionRandom.Next((int)canvas.Height - 7), 7, 7);
+                byte highColor = (byte)random.Next(150, 255);
+                byte lowColor = (byte)random.Next(0, 150);
+
+                int randomSize = random.Next(2, 15);
+
+                foxDraw.FillColor(Color.FromRgb(lowColor, highColor, lowColor));
+                foxDraw.DrawRectangle(random.Next((int)canvas.Width - randomSize),
+                    random.Next((int)canvas.Height - randomSize), randomSize, randomSize);
             }
         }
-    }
 
+        private void Canvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            canvas.Children.Clear();
+            int randomStars = random.Next(100, 300);
+            DrawManyRandomStars(randomStars);
+        }
+    }
 }

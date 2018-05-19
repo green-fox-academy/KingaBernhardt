@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -44,6 +45,11 @@ namespace FoxDrawNameSpace
 
             Canvas.Children.Add(ellipse);
             SetPosition(ellipse, x, y);
+        }
+
+        internal void DrawLine(double x11, double v1, double v2, double x12, int v3)
+        {
+            throw new NotImplementedException();
         }
 
         public void DrawLine(Point p1, Point p2)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Dominoes
 {
@@ -11,7 +12,11 @@ namespace Dominoes
             // Order them into one snake where the adjacent dominoes have the same numbers on their adjacent sides
             // Create a function to write the dominous to the console in the following format
             // eg: [2, 4], [4, 3], [3, 5] ...
-
+            foreach (var item in MakeSnakeOfDominoes(dominoes))
+            {
+                Console.WriteLine($"{item.GetValues()[0]} , {item.GetValues()[1]}");
+            }
+            Console.ReadLine();
         }
 
         public static List<Domino> InitializeDominoes()
@@ -24,6 +29,26 @@ namespace Dominoes
             dominoes.Add(new Domino(2, 4));
             dominoes.Add(new Domino(7, 1));
             return dominoes;
+        }
+        public static List<Domino> MakeSnakeOfDominoes(List<Domino> dominoes)
+        {
+            int[] currentDomino = new int[2];
+            List<Domino> orderedDominoes = new List<Domino>();
+            orderedDominoes.Add(dominoes[0]);
+            currentDomino = dominoes[0].GetValues();
+
+            for (int i = 0; i < dominoes.Count-1; i++)
+            {
+                for (int j = 1; j < dominoes.Count; j++)
+                {
+                    if (dominoes[j].GetValues()[0] == currentDomino[1])
+                    {
+                        orderedDominoes.Add(dominoes[j]);
+                        currentDomino = dominoes[j].GetValues();
+                    }
+                }
+            }
+            return orderedDominoes;
         }
     }
 }

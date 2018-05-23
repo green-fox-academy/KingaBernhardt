@@ -8,7 +8,7 @@ namespace Animal
     {
         public int hunger = 50;
         public int thirst = 50;
-        public int[] thirstAndPlay = { 50, 50 };
+        public int[] thirstAndHunger = { 50, 50 };
 
         public int Eat()
         {
@@ -22,11 +22,11 @@ namespace Animal
         }
         public int[] Play()
         {
-            for (int i = 0; i < thirstAndPlay.Length; i++)
+            for (int i = 0; i < thirstAndHunger.Length; i++)
             {
-                thirstAndPlay[i]++;
+                thirstAndHunger[i]++;
             }
-            return thirstAndPlay;
+            return thirstAndHunger;
         }
     }
 }

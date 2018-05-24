@@ -8,14 +8,20 @@ namespace String1
     {
         static void Main(string[] args)
         {
-            string givenWord = "xylophone";
-            Console.WriteLine();
+            string givenWord = "yyyyyyxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxylophone";
+            Console.WriteLine(StringOne(givenWord));
+            Console.ReadLine();
         }
         public static string StringOne(string givenWord)
         {
-            if (true)
+            string permWord = givenWord;
+            if (permWord.Contains("x"))
             {
-
+                return StringOne(permWord.Replace("x","y"));
+            }
+            else
+            {
+                return permWord;
             }
         }
     }

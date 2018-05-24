@@ -13,14 +13,17 @@ namespace String2
         }
         public static string StringTwo(string givenString)
         {
-            string tempWord = givenString;
-            if (tempWord.Contains("x"))
+            if (givenString == "")
             {
-                return StringTwo(tempWord.Remove('x'));
+                return null;
+            }
+            if (givenString[0] == 'x')
+            {
+                return StringTwo(givenString.Remove(0, 1));
             }
             else
             {
-                return tempWord;
+                return givenString[0] + StringTwo(givenString.Remove(0, 1));
             }
         }
     }

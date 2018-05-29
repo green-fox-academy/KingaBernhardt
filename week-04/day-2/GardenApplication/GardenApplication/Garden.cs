@@ -14,6 +14,15 @@ namespace GardenApplication
                 return plants;
             }
         }
+        public void AddTree(Tree tree)
+        {
+            plants.Add(tree);
+        }
+        public void AddFlower(Flower flower)
+        {
+            plants.Add(flower);
+        }
+
 
     }
 }

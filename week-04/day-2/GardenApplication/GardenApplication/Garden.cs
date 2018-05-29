@@ -7,6 +7,8 @@ namespace GardenApplication
     class Garden
     {
         List<Plant> plants = new List<Plant>();
+        private double waterAmount;
+
         public List<Plant> Plant
         {
             get
@@ -22,7 +24,22 @@ namespace GardenApplication
         {
             plants.Add(flower);
         }
+        public string WaterPlant(double WaterAmount)
+        {
 
+            return "Watering with: " + WaterAmount;
+        }
+        public void WaterWith()
+        {
+                double waterPerPlant = waterAmount / plants.Count;
+                if (plants.Count > 0)
+                {
+                    for (int i = 0; i < plants.Count; i++)
+                    {
+                        plants[i].WaterAmount += waterPerPlant * plants[i].WaterAbsorb;
+                    }
 
+                }
+        }
     }
 }

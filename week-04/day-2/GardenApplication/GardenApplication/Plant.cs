@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Text;
 
 namespace GardenApplication
@@ -34,15 +33,11 @@ namespace GardenApplication
 
             }
         }
-        
-        public Plant(Color color)
+
+        public Plant(string color)
         {
             this.color = color;
             waterAmount = 0;
-        }
-        public string NeedsWater()
-        {
-            return "The " + color + "needs water.";
         }
     }
 }

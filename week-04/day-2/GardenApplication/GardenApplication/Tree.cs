@@ -7,7 +7,7 @@ namespace GardenApplication
 {
     class Tree : Plant
     {
-        public Tree(Color color) : base(color)
+        public Tree(string color) : base(color)
         {
             WaterAbsorb = 0.4;
         }
@@ -15,11 +15,11 @@ namespace GardenApplication
         {
             if (WaterAmount >= 10)
             {
-                return color + " Tree doesn't need water.";
+                return "The " + color + " Tree doesn't need water.";
             }
             else
             {
-                return color + " Tree needs water.";
+                return "The " + color + " Tree needs water.";
             }
            
         }

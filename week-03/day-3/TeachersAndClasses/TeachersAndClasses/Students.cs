@@ -10,6 +10,7 @@ namespace TeachersAndClasses
         {
             return "There are many types.";
         }
+
         public string Question(Teachers teacher)
         {
             return teacher.Answer();

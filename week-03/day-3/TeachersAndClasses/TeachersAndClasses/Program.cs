@@ -6,10 +6,10 @@ namespace TeachersAndClasses
     {
         static void Main(string[] args)
         {
-            Teachers teacherName = new Teachers();
-            Students studentFirst = new Students();
-            Console.WriteLine(studentFirst.Question(teacherName));
-            Console.WriteLine(teacherName.Teach(studentFirst));
+            Teachers missKinga = new Teachers();
+            Students alex = new Students();
+            Console.WriteLine(alex.Question(missKinga));
+            Console.WriteLine(missKinga.Teach(alex));
             Console.ReadLine();
         }
     }

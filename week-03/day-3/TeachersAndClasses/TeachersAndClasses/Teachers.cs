@@ -10,6 +10,7 @@ namespace TeachersAndClasses
         {
             return student.Learn();
         }
+
         public string Answer()
         {
             return "Please tell me two type of trees!";

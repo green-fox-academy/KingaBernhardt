@@ -40,6 +40,7 @@ namespace Pirates
                 return "Arghh, I am a Pirate. How d'ya d'ink its going?";
             }
         }
+
         public bool PassOut()
         {
             if (passOut)
@@ -48,6 +49,7 @@ namespace Pirates
             }
             return true;
         }
+
         public bool Die()
         {
             if (isAlive)
@@ -56,6 +58,7 @@ namespace Pirates
             }
             return true;
         }
+
         public string PrintOutPirates()
         {
             return "The toxicitylevel is: " + DrinkSomeRum() + " is he awake? " + PassOut() + "he is dead from drinking too much " + Die();

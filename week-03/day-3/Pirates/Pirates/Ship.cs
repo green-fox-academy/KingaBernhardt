@@ -12,7 +12,7 @@ namespace Pirates
 
         public void FillShip()
         {
-            for (int i = 0; i < randomValue.Next(0,14); i++)
+            for (int i = 0; i < randomValue.Next(0,3); i++)
             {
                 crew.Add(new Pirate(1, true, false, "Mary"));
                 crew.Add(new Pirate(6,true, false, "Boby"));
@@ -20,10 +20,12 @@ namespace Pirates
                 crew.Add(new Pirate(4, true, false, "Ciw"));
             }
         }
+
         public string GetShipStatus()
         {
             return "Our captain's passed out: " + captain.PassOut() + " or is he still alive: " + captain.Die() + " and he drunk how much: " + captain.DrinkSomeRum();
         }
+
         public int MembersAlive()
         {
             int dieCounter = 0;
@@ -35,6 +37,7 @@ namespace Pirates
                 }
             return dieCounter;
         }
+
         public int MembersPassedOut()
         {
             int passOutCounter = 0;

@@ -6,8 +6,7 @@ namespace Instruments
 { 
     public abstract class StringedInstrument : Instrument
     {
-        private int numberOfStrings;
-
+        protected int numberOfStrings;
         public abstract string Sound();
     }
 }

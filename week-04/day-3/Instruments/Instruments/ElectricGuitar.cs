@@ -6,14 +6,24 @@ namespace Instruments
 {
     class ElectricGuitar : StringedInstrument
     {
+        public ElectricGuitar(int numberOfStrings)
+        {
+            name = "Electric Guitar";
+            this.numberOfStrings = numberOfStrings;
+        }
+        public ElectricGuitar()
+        {
+            numberOfStrings = 6;
+            name = "Electric Guitar";
+        }
         public override void Play()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(name + " , a " + numberOfStrings + " - stringed instrument that " + Sound());
         }
 
         public override string Sound()
         {
-            throw new NotImplementedException();
+            return "twangs";
         }
     }
 }

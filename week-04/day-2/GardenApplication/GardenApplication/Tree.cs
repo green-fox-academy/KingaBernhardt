@@ -9,9 +9,15 @@ namespace GardenApplication
     {
         public Tree(string color) : base(color)
         {
-            WaterAbsorb = 0.4;
         }
-        public override string ToString()
+
+        public override double WaterAbsorbtion(double gotWatered)
+        {
+            WaterAbsorb = gotWatered * 0.4;
+            return WaterAbsorb;
+        }
+
+        public override string NeedWater()
         {
             if (WaterAmount >= 10)
             {
@@ -21,8 +27,6 @@ namespace GardenApplication
             {
                 return "The " + color + " Tree needs water.";
             }
-           
         }
-
     }
 }

@@ -9,9 +9,15 @@ namespace GardenApplication
     {
         public Flower(string color) : base(color)
         {
-            WaterAbsorb = 0.75;
         }
-        public override string ToString()
+
+        public override double WaterAbsorbtion(double gotWatered)
+        {
+            WaterAbsorb = gotWatered * 0.75;
+            return WaterAbsorb;
+        }
+
+        public override string NeedWater()
         {
             if (WaterAmount >= 5)
             {

@@ -7,7 +7,7 @@ namespace GardenApplication
     class Plant
     {
         protected string color;
-        private double waterAmount;
+        protected double waterAmount;
         private double waterAbsorb;
 
         public double WaterAbsorb
@@ -18,7 +18,7 @@ namespace GardenApplication
             }
             set
             {
-
+                waterAbsorb = value;
             }
         }
 
@@ -28,16 +28,27 @@ namespace GardenApplication
             {
                 return waterAmount;
             }
-            set
-            {
+        }
 
-            }
+        public void SetCurrentWaterAmount(double change)
+        {
+            waterAmount += change;
         }
 
         public Plant(string color)
         {
             this.color = color;
             waterAmount = 0;
+        }
+
+        public virtual string NeedWater()
+        {
+            return "Override in subclass";
+        }
+
+        public virtual double WaterAbsorbtion(double gotWatered)
+        {
+            return WaterAbsorb;
         }
     }
 }

@@ -28,7 +28,6 @@ namespace Flyable
         return name;
         }
 
-
         public abstract string WantChild();
     }
 }

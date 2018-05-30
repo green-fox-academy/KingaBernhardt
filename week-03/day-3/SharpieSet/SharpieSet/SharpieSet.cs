@@ -11,15 +11,16 @@ namespace SharpieSet
         public string CountUsable()
         {
             int count = 0;
-            foreach (var item in sharpies)
+            for (int i = 0; i < sharpies.Count; i++)
             {
-                if (item.inkAmount > 0)
+                if (sharpies[i].inkAmount > 0)
                 {
                     count++;
                 }
             }
             return "There are " + count + " usable sharpies left.";
         }
+
         public string RemoveTrash()
         {
             int amountRemoved = 0;

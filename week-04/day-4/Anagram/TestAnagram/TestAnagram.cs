@@ -11,7 +11,9 @@ namespace Anagram
         [TestCase]
         public void AnagramsOrNot()
         {
-
+            Program output = new Program();
+            bool expectedResult = output.GetAnagram("apple", "elppa");
+            Assert.True(expectedResult);
         }
     }
 }

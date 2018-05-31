@@ -9,10 +9,11 @@ namespace CountLetters
     public class TestDictionary
     {
         [TestCase]
-        public string TestDictionaryKeyValueFunction()
+        public void TestDictionaryKeyValueFunction()
         {
             Program program = new Program();
-            Assert.AreEqual();
+            string testWord = "thinkable";
+            Assert.AreEqual(program.CountLetters(testWord),);
         }
     }
 }

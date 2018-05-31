@@ -3,7 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NUnit Test1
+
+namespace Sum
 {
     [TestFixture]
     public class TestSum
@@ -11,7 +12,9 @@ namespace NUnit Test1
         [TestCase]
         public void ShouldReturnTheSumOfIntegers()
         {
-
+            Sum first = new Sum();
+            List<int> testNumbers = new List<int>() {5, 10, 5, 7, 3, 13};
+            Assert.AreEqual(first.SumNums(testNumbers), 43);
         }
 
     }

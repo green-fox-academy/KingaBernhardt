@@ -6,7 +6,6 @@ namespace Sum
 {
     public class Sum
     {
-        List<int> numbers = new List<int>() { 4, 6, 5, 5};
         public int SumNums(List<int> numbers)
         {
             int result = 0;

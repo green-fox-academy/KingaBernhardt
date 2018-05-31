@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CountLetters
 {
@@ -6,12 +7,23 @@ namespace CountLetters
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine();
         }
-        public Dictionary<string, int> CountLetters(string givenWord)
+        public Dictionary<char, int> CountLetters(string givenWord)
         {
-            Dictionary<string, int> setWords = new Dictionary<string, int>();
-            return;
+            Dictionary<char, int> setWords = new Dictionary<char, int>();
+            for (int i = 0; i < givenWord.Length; i++)
+            {
+                if (setWords.ContainsKey(givenWord[i]))
+                {
+                    setWords[givenWord[i]]++;
+                }
+                else
+                {
+                    setWords.Add(givenWord[i], 1);
+                }
+            }
+            return setWords;
         }
     }
 }

@@ -6,7 +6,6 @@ namespace FibonacciTesting
     {
         static void Main(string[] args)
         {
-            Console.WriteLine();
         }
 
         public int FibonacciForTesting(int numberOne)

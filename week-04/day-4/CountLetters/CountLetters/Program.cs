@@ -3,12 +3,13 @@ using System.Collections.Generic;
 
 namespace CountLetters
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine();
         }
+
         public Dictionary<char, int> CountLetters(string givenWord)
         {
             Dictionary<char, int> setWords = new Dictionary<char, int>();

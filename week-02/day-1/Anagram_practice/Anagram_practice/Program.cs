@@ -10,14 +10,19 @@ namespace Anagram_practice
             string firstGivenWord = Console.ReadLine();
             Console.WriteLine("Please enter a second word!");
             string secondGivenWord = Console.ReadLine();
-            bool isAnagramOrNot = Anagram(firstGivenWord, secondGivenWord);
+            bool isAnagramOrNot = AnagramFirstSolution(firstGivenWord, secondGivenWord);
             Console.WriteLine(isAnagramOrNot);
+
+            Console.WriteLine("Please enter one word!");
+            string wordOne = Console.ReadLine();
+            Console.WriteLine("Please enter a second word!");
+            string wordTwo = Console.ReadLine();
+            bool stillAnagramOrNot = AnagramSecondSolution(wordOne, wordTwo);
+
             Console.ReadLine();
         }
-        public static bool Anagram(string word1, string word2)
+        public static bool AnagramFirstSolution(string word1, string word2)
         {
-            string createdWord = "";
-            int sameLetter = 0;
             if (word1.Length != word2.Length)
             {
                 return false;
@@ -45,6 +50,22 @@ namespace Anagram_practice
                 return true;
             }
             return true;
+        }
+
+        public static bool AnagramSecondSolution(string wordOne, string wordTwo)
+        {
+            char[] WordOneArray = wordOne.ToCharArray();
+            char[] WordTwoArray = wordTwo.ToCharArray();
+            if (WordOneArray.Length != WordTwoArray.Length)
+            {
+                return false;
+            }
+            else
+            {
+                Array.Sort(WordOneArray);
+                Array.Sort(WordTwoArray);
+                return WordOneArray.ToString().Equals(WordTwoArray.ToString());
+            }
         }
     }
 }

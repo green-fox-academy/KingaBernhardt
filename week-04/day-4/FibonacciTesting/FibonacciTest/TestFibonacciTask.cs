@@ -8,7 +8,7 @@ namespace FibonacciTesting
     [TestFixture]
     class TestFibonacciTask
     {
-        Program fibProgram = new Program();
+        Fib fibProgram = new Fib();
 
         [TestCase]
         public void TestFibonacciWithEight()
@@ -25,7 +25,7 @@ namespace FibonacciTesting
         [TestCase]
         public void TestFibonacciWithNegative()
         {
-            Assert.AreEqual(120, fibProgram.FibonacciForTesting(-7));
+            Assert.AreEqual(12, fibProgram.FibonacciForTesting(3));
         }
 
         [TestCase]

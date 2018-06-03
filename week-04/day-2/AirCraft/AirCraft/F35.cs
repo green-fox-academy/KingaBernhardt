@@ -28,10 +28,5 @@ namespace AirCraft
         {
             return base.GetStatus();
         }
-
-        public bool IsPriority()
-        {
-            return true;
-        }
     }
 }

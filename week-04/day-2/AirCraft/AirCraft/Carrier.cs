@@ -19,9 +19,9 @@ namespace AirCraft
             List<AirCrafts> carrier = new List<AirCrafts>();
         }
 
-        public int AddAirCraft(AirCrafts helicopter)
+        public int AddAirCraft(AirCrafts aeroplane)
         {
-           carrier.Add(helicopter);
+            carrier.Add(aeroplane);
            return storeOfAircraft++; 
         }
 

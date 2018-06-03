@@ -10,6 +10,7 @@ namespace palindromeBuilder_hardOnes
             Console.WriteLine(CreatePalindrome(animal));
             Console.ReadLine();
         }
+
         public static string CreatePalindrome (string potentialPalindrome)
         {
             string palindrome = potentialPalindrome;

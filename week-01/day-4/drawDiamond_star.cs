@@ -13,7 +13,8 @@ namespace drawDiamond_star
                 Console.WriteLine("Enter an odd number:");
                 numDiamond = Int32.Parse(Console.ReadLine());
 
-            } while ((numDiamond < 3) || (numDiamond % 2 == 0));
+            }
+            while ((numDiamond < 3) || (numDiamond % 2 == 0));
 
             int firstPart = (numDiamond + 1) / 2;
             int secondPart = (numDiamond - 1) / 2;

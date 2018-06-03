@@ -13,7 +13,7 @@ namespace appendA_arrays
             string[] animals = new string[] { "kuty", "macsk", "cic" };
             for (int i = 0; i < animals.Length; i++)
             {
-                animals[i] += "a";
+                animals[i] += 'a';
                 Console.WriteLine(animals[i]);
 
 

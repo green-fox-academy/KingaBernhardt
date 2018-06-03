@@ -21,6 +21,7 @@ namespace Anagram_practice
 
             Console.ReadLine();
         }
+
         public static bool AnagramFirstSolution(string word1, string word2)
         {
             if (word1.Length != word2.Length)
@@ -40,7 +41,6 @@ namespace Anagram_practice
                         else if (j == word1.Length - 1)
                         {
                             return false;
-                            break;
                         }
                     }
                 }

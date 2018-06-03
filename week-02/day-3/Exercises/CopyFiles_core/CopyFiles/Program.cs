@@ -17,6 +17,7 @@ namespace CopyFiles
             Console.WriteLine(Copy(oldFile));
             Console.ReadLine();
         }
+
         public static bool Copy(string fileName)
         {
             try

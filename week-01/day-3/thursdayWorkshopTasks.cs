@@ -44,12 +44,12 @@ namespace swap
         {
             int a = 123;
             int b = 526;
+            int c = a;
+            a = b;
+            b = c;
 
-            int b2 = a;
-            int a2 = b;
-
-            Console.WriteLine(a2);
-            Console.WriteLine(b2);
+            Console.WriteLine(a);
+            Console.WriteLine(b);
             Console.ReadLine();
 
         }

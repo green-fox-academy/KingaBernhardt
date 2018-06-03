@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Apples\Apples.csproj" />
-    <ProjectReference Include="..\ConsoleApp1\ConsoleApp1.csproj" />
   </ItemGroup>
 
 </Project>

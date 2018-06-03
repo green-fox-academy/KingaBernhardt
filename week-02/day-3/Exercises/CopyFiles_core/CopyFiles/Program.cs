@@ -17,15 +17,15 @@ namespace CopyFiles
             Console.WriteLine(Copy(oldFile));
             Console.ReadLine();
         }
-        public static bool Copy(string fileNames)
+        public static bool Copy(string fileName)
         {
             try
             {
-                string[] savedFile = File.ReadAllLines(fileNames);
+                string[] savedFile = File.ReadAllLines(fileName);
                 File.WriteAllLines(@"C:\Users\kinga\OneDrive\Desktop\Green Fox Academy\greenfox\KingaBernhardt\week-02\day-3\Exercises\CopyFiles_core\CopyFiles\new-fileCopy.txt", savedFile);
                 return true;
             }
-            catch (Exception)
+            catch (FileNotFoundException)
             {
                 return false;
             }

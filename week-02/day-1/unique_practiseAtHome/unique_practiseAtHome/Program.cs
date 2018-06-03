@@ -17,6 +17,7 @@ namespace unique_practiseAtHome
             }
             Console.ReadLine();
         }
+
         public static List<int> Unique(List<int> numbers)
         {
             List<int> tempNumbers = new List<int>();

@@ -28,6 +28,10 @@ namespace AirCraft
             return type;
         }
 
+        public bool IsPriority()
+        {
+            return GetType() == "F35";
+        }
         public virtual string GetStatus()
         {
             return "Type " + GetType() + ", Ammo: " + ammo + " Base Damage: " + baseDamage + " All Damage: " + Fights();

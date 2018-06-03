@@ -6,7 +6,13 @@ namespace AirCraft
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            AirCrafts britishAirways = new AirCrafts();
+            F35 f35 = new F35();
+            F16 f16 = new F16();
+
+            Console.WriteLine(britishAirways.GetStatus());
+            Console.ReadLine();
+
         }
     }
 }

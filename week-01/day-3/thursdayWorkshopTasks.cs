@@ -194,7 +194,9 @@ namespace secondinapage
         double bSide = 4;
         double cSide = 10;
         double surfaceArea = 2 * aSide + 2 * bSide + 2 * cSide;
+            double volume = aSide * bSide * cSide;
             Console.WriteLine(surfaceArea);
+            Console.WriteLine(volume);
             Console.ReadLine();
 
 

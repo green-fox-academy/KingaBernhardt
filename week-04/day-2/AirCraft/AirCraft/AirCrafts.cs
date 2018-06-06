@@ -4,37 +4,60 @@ using System.Text;
 
 namespace AirCraft
 {
-    public class AirCrafts
+    public class AirCraft
     {
-        private string type;
-        private int ammo;
-        private int baseDamage;
+        private int Ammo { get; set; }
+        private int MaxAmmo { get; set; }
+        private int Damage { get; set; }
 
-        public virtual int Fights()
+        public AirCraft(int ammo, int damage)
         {
-            int ammo = 0;
-            int allDamage = baseDamage + ammo;
-            return allDamage;
+            Ammo = 0;
+            MaxAmmo = ammo;
+            Damage = damage;
         }
 
-        public virtual int Refill(int givenNum)
+        public int Fights()
         {
-            int remainAmmo = givenNum - ammo;
-            return remainAmmo;
+            int ammoToDeplete = Ammo;
+            Ammo = 0;
+            return ammoToDeplete * Damage;
         }
 
-        public virtual string GetType()
+        public int Refill(int ammoAmountToFill)
         {
-            return type;
+            if (MaxAmmo - Ammo <= ammoAmountToFill)
+            {
+                Ammo += MaxAmmo - Ammo;
+                return 0;
+            }
+            else
+            {
+                int remainingAmmo = MaxAmmo - Ammo;
+                Ammo = MaxAmmo;
+                return ammoAmountToFill - remainingAmmo;
+            }
+        }
+
+        public new string GetType()
+        {
+            if (this is F16)
+            {
+                return "F16";
+            }
+            else
+            {
+                return "F35";
+            }
         }
 
         public bool IsPriority()
         {
-            return GetType() == "F35";
+            return this is F35;
         }
-        public virtual string GetStatus()
+        public string GetStatus()
         {
-            return "Type " + GetType() + ", Ammo: " + ammo + " Base Damage: " + baseDamage + " All Damage: " + Fights();
+            return "Type " + GetType() + ", Ammo: " + Ammo + " Base Damage: " + Damage + " All Damage: " + Ammo * Damage;
         }
     }
 }

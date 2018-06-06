@@ -4,10 +4,9 @@ using System.Text;
 
 namespace AirCraft
 {
-    class Carrier :AirCrafts
+    public class Carrier
     {
-        List<AirCrafts> carrier;
-        private int storeOfAircraft;
+        private List<AirCraft> carrier;
         private int storeOfAmmo;
         private int healthPoint;
 
@@ -16,73 +15,66 @@ namespace AirCraft
             this.storeOfAmmo = storeOfAmmo;
             this.healthPoint = healthPoint;
 
-            List<AirCrafts> carrier = new List<AirCrafts>();
+            this.carrier = new List<AirCraft>();
         }
 
-        public int AddAirCraft(AirCrafts aeroplane)
+        public void Add(AirCraft aeroplane)
         {
             carrier.Add(aeroplane);
-           return storeOfAircraft++; 
         }
 
         public void FillAirCraft()
         {
-            try
+            if (storeOfAmmo == 0)
             {
-                for (int i = 0; i < carrier.Count; i++)
+                throw new Exception("Give me ammo");
+            }
+            foreach (AirCraft oneCarrier in carrier)
+            {
+                if (oneCarrier.IsPriority())
                 {
-                    if (carrier[i].IsPriority())
-                    {
-                        storeOfAmmo = carrier[i].Refill(storeOfAmmo);
-                    }
+                    storeOfAmmo = oneCarrier.Refill(storeOfAmmo);
                 }
-                
-            }
-            catch (MissingMemberException)
-            {
-
-                throw;
             }
         }
-
-        public string Fight(Carrier otherCarrier)
+        public void Fight(Carrier otherCarrier)
         {
-            string output = String.Empty;
-
-            FillAirCraft();
-
-            for (int i = 0; i < carrier.Count; i++)
+            int totalDamage = 0;
+            foreach (AirCraft oneCarrier in carrier)
             {
-                otherCarrier.healthPoint -= carrier[i].Fights();
+                totalDamage += oneCarrier.Fights();
             }
-            return output += otherCarrier.GetStatus();
+            otherCarrier.healthPoint -= totalDamage;
+            if (otherCarrier.healthPoint < 0)
+            {
+                otherCarrier.healthPoint = 0;
+            }
         }
 
-        public int GetTotalDamage()
-        {
-            int damage = 0;
-            for (int i = 0; i < carrier.Count; i++)
-            {
-                damage += carrier[i].Fights();
-            }
-            return damage;
-        }
         public string GetStatus()
         {
-            string output;
-            if (healthPoint > 0)
+            if (healthPoint != 0)
             {
-                output = $"HP: {healthPoint}, Aircraft count: {carrier.Count}, Ammo Storage: {storeOfAmmo}, " +
-                                    $"Total Damage: {GetTotalDamage()}\nAircrafts: \n";
-                for (int i = 0; i < carrier.Count; i++)
+                int totalDamage = 0;
+                foreach (AirCraft oneCarrier in carrier)
                 {
-                    output += carrier[i].GetStatus() + "\n";
+                    totalDamage += oneCarrier.Fights();
+
                 }
-                return output;
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.Append(
+                    String.Format("HP: {0}, Aircraft count: {1}, Ammo Storage: {2}, Total damage: {3}\nAircrafts:\n",
+                    healthPoint, carrier.Count, storeOfAmmo, totalDamage));
+
+                foreach (AirCraft oneCarrier in carrier)
+                {
+                    stringBuilder.Append(oneCarrier.GetStatus()).Append("\n");
+                }
+                return stringBuilder.ToString();
             }
             else
             {
-                return "It's Dead Jim";
+                return "It's dead Jim :(";
             }
         }
     }

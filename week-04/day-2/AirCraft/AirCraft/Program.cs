@@ -6,21 +6,16 @@ namespace AirCraft
     {
         static void Main(string[] args)
         {
-            AirCrafts britishAirways = new AirCrafts();
-            Carrier s56 = new Carrier(2500, 1450);
-            Carrier e256 = new Carrier(6000, 320);
-
-            s56.AddAirCraft(new F16());
-            s56.AddAirCraft(new F16());
-            s56.AddAirCraft(new F16());
-
-            s56.AddAirCraft(new F35());
-            s56.AddAirCraft(new F35());
-
-            Console.WriteLine(s56.Fight(e256));
-            Console.WriteLine(s56.GetStatus());
+            F16 f16 = new F16();
+            Carrier plane = new Carrier(100, 100);
+            f16.Refill(300000000);
+            plane.Add(f16);
+            plane.Add(f16);
+            plane.Add(f16);
+            plane.Add(f16);
+            plane.Add(f16);
+            Console.WriteLine(plane.GetStatus());
             Console.ReadLine();
-
         }
     }
 }

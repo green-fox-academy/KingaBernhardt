@@ -4,29 +4,10 @@ using System.Text;
 
 namespace AirCraft
 {
-    class F16 : AirCrafts
+    class F16 : AirCraft
     {
-        private int ammo = 8;
-        private int baseDamage = 30;
-
-        public override int Fights()
+        public F16() : base(8, 30)
         {
-            return base.Fights();
-        }
-
-        public override int Refill(int givenNum)
-        {
-            return base.Refill(givenNum);
-        }
-
-        public override string GetType()
-        {
-            return "F16";
-        }
-
-        public override string GetStatus()
-        {
-            return base.GetStatus();
         }
     }
 }

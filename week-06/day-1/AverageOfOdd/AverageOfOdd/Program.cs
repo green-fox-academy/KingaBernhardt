@@ -15,6 +15,11 @@ namespace AverageOfOdd
                                   select num).Average();
             Console.WriteLine(averageOddNum);
 
+            Console.WriteLine();
+
+            var averageOddNum2 = n.Where(x => x % 2 != 0).Average();
+            Console.WriteLine(averageOddNum2);
+
             Console.ReadLine();
         }
     }

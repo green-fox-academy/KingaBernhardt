@@ -30,7 +30,6 @@ namespace foxLinq
             {
                 Console.WriteLine(i);
             }
-            Console.WriteLine();
 
             var findGreenPallida = from p in foxes
                                    where p.Color.Equals("green")
@@ -41,6 +40,16 @@ namespace foxLinq
             {
                 Console.WriteLine(item);
             }
+            Console.WriteLine("------------------------------------");
+
+            IEnumerable<Fox> findGreen2 = foxes.Where(p => p.Color.Equals("green"));
+
+            findGreen2.ToList().ForEach(p => Console.WriteLine("This is green: " + p));
+
+            IEnumerable<Fox> findGreenPallida2 = foxes.Where(p => p.Color.Equals("green") && p.Type.Equals("pallida"));
+
+            findGreenPallida2.ToList().ForEach(p => Console.WriteLine("This is green and pallida type" + p));
+
             Console.ReadLine();
         }
     }

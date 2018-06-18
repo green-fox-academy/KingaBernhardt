@@ -17,6 +17,14 @@ namespace GetEvenNumbers
             {
                 Console.WriteLine(item);
             }
+
+            Console.WriteLine();
+
+            IEnumerable<int> evenNums = n.Where(x => x % 2 == 0).OrderBy(x => x);
+            foreach (var i in evenNums)
+            {
+                Console.WriteLine(i);
+            }
             Console.ReadLine();
         }
     }

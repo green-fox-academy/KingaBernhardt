@@ -11,11 +11,13 @@ namespace CharToString
         {
             char[] myArray = { 'a', 'g', 'y' };
 
-            /*IEnumerable<string> makeString = from m in myArray
-                                             where char.*/
-
+            /*var makeString = from m in myArray
+                             where m.ToString().Join("", m)
+                             select m;
+                             */
             var makeString2 = string.Join("", myArray.Select(a => a));
             Console.WriteLine(makeString2);
+
             Console.ReadLine();
         }
     }

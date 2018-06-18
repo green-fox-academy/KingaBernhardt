@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace foxLinq
 {
@@ -11,7 +13,14 @@ namespace foxLinq
 
         static void Main(string[] args)
         {
-            
+            List<Fox> foxes = new List<Fox>()
+            { 
+                new Fox() { Color = "red", Name = "Palinda", Type = "trigger" },
+                new Fox() { Color = "yellow", Name = "Gando", Type = "fulvipes"},
+                new Fox() { Color = "brown", Name = "Vuk", Type = "forest"},
+            };
+
+
         }
     }
 }

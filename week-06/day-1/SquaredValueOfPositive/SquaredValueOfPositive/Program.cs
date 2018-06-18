@@ -19,6 +19,14 @@ namespace SquaredValueOfPositive
             {
                 Console.WriteLine("The squared values of the positive numbers: {0}", item );
             }
+
+            Console.WriteLine();
+
+            IEnumerable<int> squaredNums = n.Where(x => x > 0).Select(x => x * x).OrderBy(x => x);
+            foreach (var item in squaredNums)
+            {
+                Console.WriteLine(item);
+            }
             Console.ReadLine();
         }
     }

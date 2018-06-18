@@ -17,7 +17,6 @@ namespace CharToString
                              */
             var makeString2 = string.Join("", myArray.Select(a => a));
             Console.WriteLine(makeString2);
-
             Console.ReadLine();
         }
     }

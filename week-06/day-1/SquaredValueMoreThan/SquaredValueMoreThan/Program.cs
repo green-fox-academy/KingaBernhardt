@@ -15,7 +15,7 @@ namespace SquaredValueMoreThan
                        select num;
             foreach (var item in nums)
             {
-                Console.Write("\nLINQ : Find the number and its square of an array which is more than 20 : ");
+                Console.Write("\nFind the number and its square of an array which is more than 20 : ");
                 Console.WriteLine(item);
             }
             Console.WriteLine();

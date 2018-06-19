@@ -1,4 +1,4 @@
-
+/*For all cases where the same reviewer rated the same movie twice and gave it a higher rating the second time, return the reviewer's name and the title of the movie.*/
 SELECT reviewer.name, movie.title
 FROM movie INNER JOIN rating a, rating b
 ON movie.mID = a.mID

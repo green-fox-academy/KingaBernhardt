@@ -1,3 +1,4 @@
+
 body {
 	background-color: #d4d9dd;
 	margin: 10%;
@@ -12,11 +13,13 @@ font-weight: normal;
 }
 
 fieldset {
+	position: relative;
+	width:300px;
+	height: 300px;
 	background-color: #fff;
 	padding: 30px;
 	margin: auto;
-	width: 300px;
-	height: 300px;
+	
 }
 
 label[for="username"], label[for="userPassword"]{
@@ -26,20 +29,29 @@ label[for="username"], label[for="userPassword"]{
 	color: #8c8f91;
 
 }
-input[type="email"],
-input[type="telephone"]{
+input[type="text"],
+input[type="password"]{
+	width: 100%;
+	overflow: hidden;
 	display: block;
-	margin-bottom: 20px, ;
-	padding: 20px 20px 20px 60px;
+	padding: 8px 0px;
+	margin: 8px 0;
 }
-
+span {
+float: right;
+font-family: "Gill Sans", sans-serif;
+text-decoration: none;
+color: #8c8f91;
+}
 input[type="submit"]{
 	background: #404142;
-	padding:15px;
+	padding: 15px;
 	color: #dbdcdd;
 	font-size: 15px;
 	border-radius: 30px;
 	border: 0;
 	box-shadow: 1px 1px 1px rgba(0,0,0,20);
-	width: 100px;
+	width: 30%;
+	height: 100%;
+	margin: 5px 60px 20px 10px;
 }

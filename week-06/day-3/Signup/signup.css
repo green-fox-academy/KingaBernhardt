@@ -9,10 +9,10 @@ h1 {
 	font-size: 20px;
 	color: black;
 	font-weight: normal;
+	font-size: 40px;
 }
 
 table {
-	
 	background-color: #f2f1ef;
 	padding: 30px;
 	margin: auto;
@@ -26,6 +26,10 @@ input[type="email"]{
 	display: block;
 	padding: 8px 0px;
 	margin: 8px 0;
+	border: none;
+	background-color: #f2f1ef;
+	border-bottom: 1px solid #afb2ad;
+
 }
 
 #facebook {
@@ -55,15 +59,17 @@ input[type="email"]{
 	color: white;
 }
 
-#or{
+#or {
+margin: auto;
+text-align: center;
 border-radius: 50px;
 background-color: #b2afae;
 color: black;
 font-family: "Gill Sans", sans-serif;
 font-size: 15px;
-width: 30%;
-height: 100%;
+width: 25%;
 box-shadow: 1px 1px 1px rgba(0,0,0,20);
+
 }
 
 #firstColumn{
@@ -71,15 +77,14 @@ box-shadow: 1px 1px 1px rgba(0,0,0,20);
 }
 
 input[type="submit"] {
-	text-align: left;
+	text-align: center;
+	vertical-align: center;
 	background: #7da866;
-	padding: 15px;
+	padding: 25px 30px;
 	color: #dbdcdd;
 	font-size: 15px;
-	border-radius: 30px;
 	border: 0;
 	box-shadow: 1px 1px 1px rgba(0,0,0,20);
-	width: 30%;
-	height: 100%;
-	margin: 10px 10px 50px 10px;
+	height: 90%;
+	margin: 10px 10px 10px 10px;
 }

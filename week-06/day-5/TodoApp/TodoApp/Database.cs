@@ -32,9 +32,9 @@ namespace TodoApp
                     communication.CommandText = createTableQuery;     // Set CommandText to our query that will create the table
                     communication.ExecuteNonQuery();                  // Execute the query
 
-                    communication.CommandText = "INSERT INTO todos (text, created) Values ('travel somewhere',date('now'))";     // Add the first entry into our database 
+                    communication.CommandText = "INSERT INTO todos (text, created, completed) Values ('travel somewhere',date('now'),'2018-06-30')";     // Add the first entry into our database 
                     communication.ExecuteNonQuery();      // Execute the query
-                    communication.CommandText = "INSERT INTO todos (text, created) Values ('buy bread',date('now'))";   // Add another entry into our database 
+                    communication.CommandText = "INSERT INTO todos (text, created, completed) Values ('buy bread',date('now'),'2018-06-23')";   // Add another entry into our database 
                     communication.ExecuteNonQuery();      // Execute the query
 
                     communication.CommandText = "Select * FROM todos";      // Select all rows from our database table

@@ -32,10 +32,10 @@ namespace TodoApp
                     communication.CommandText = createTableQuery;     // Set CommandText to our query that will create the table
                     communication.ExecuteNonQuery();                  // Execute the query
 
-                    communication.CommandText = "INSERT INTO todos (text, created, completed) Values ('travel somewhere',date('now'),'2018-06-30')";     // Add the first entry into our database 
-                    communication.ExecuteNonQuery();      // Execute the query
-                    communication.CommandText = "INSERT INTO todos (text, created, completed) Values ('buy bread',date('now'),'2018-06-23')";   // Add another entry into our database 
-                    communication.ExecuteNonQuery();      // Execute the query
+                    GetInfo();
+                    communication.ExecuteNonQuery();
+                    //communication.CommandText = "INSERT INTO todos (text, created, completed) Values ('buy bread',date('now'),'2018-06-23')";   // Add another entry into our database 
+                    //communication.ExecuteNonQuery();      // Execute the query
 
                     communication.CommandText = "Select * FROM todos";      // Select all rows from our database table
 
@@ -51,11 +51,47 @@ namespace TodoApp
             }
             Console.ReadLine();
         }
-        public void AddData(SQLiteCommand saveData)
+
+        public void GetInfo()
         {
-            saveData.CommandText = "INSERT INTO todos (text, created, completed) Values ('travel somewhere',date('now'))";     // Add the first entry into our database 
-            saveData.ExecuteNonQuery();
+            Console.WriteLine("Give me a todo");
+            string todo = Console.ReadLine();
+            Console.WriteLine("When do you want it to be completed?");
+            string completeDate = Console.ReadLine();
+            AddInfos(todo, completeDate);
         }
+        public void AddInfos(string the_todo, string the_completeDate)
+        {
+            var connection = new SQLiteConnection("Data Source=database.sqlite3");
+            SQLiteCommand cmd;
+            connection.Open();
+
+            try
+            {
+                cmd = connection.CreateCommand();
+                cmd.CommandText = @"INSERT INTO todos (text, created, completed) VALUES ('" + the_todo + "', date('now'), '" + the_completeDate + "');";
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Added: " + the_todo + DateTime.Now + the_completeDate + "to the database.");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("not working "+ e.Data);
+                
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+        /*public void AddData(SQLiteCommand saveData)
+        {
+
+            saveData.CommandText = "INSERT INTO todos (text, created, completed) Values ('" + the_todo + "', date('now'),'2018-07-24')";     // Add the first entry into our database 
+            saveData.ExecuteNonQuery();
+        }*/
 
         public void LoadAll(SQLiteCommand getAll)
         {

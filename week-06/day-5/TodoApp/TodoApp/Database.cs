@@ -14,7 +14,7 @@ namespace TodoApp
                           [id] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                           [text] NVARCHAR(2048)  NULL,
                           [created] DATETIME AUTOCOMPLETE NOT NULL,
-                          [completed] DATETIME AUTOCOMPLETE NOT NULL
+                          [completed] DATETIME NOT NULL
                           )";
 
             if (!File.Exists("./database.sqlite3"))
@@ -32,9 +32,9 @@ namespace TodoApp
                     communication.CommandText = createTableQuery;     // Set CommandText to our query that will create the table
                     communication.ExecuteNonQuery();                  // Execute the query
 
-                    communication.CommandText = "INSERT INTO todos (text, created) Values ('travel somewhere','now')";     // Add the first entry into our database 
+                    communication.CommandText = "INSERT INTO todos (text, created) Values ('travel somewhere',date('now'))";     // Add the first entry into our database 
                     communication.ExecuteNonQuery();      // Execute the query
-                    communication.CommandText = "INSERT INTO todos (text, created) Values ('buy bread','now')";   // Add another entry into our database 
+                    communication.CommandText = "INSERT INTO todos (text, created) Values ('buy bread',date('now'))";   // Add another entry into our database 
                     communication.ExecuteNonQuery();      // Execute the query
 
                     communication.CommandText = "Select * FROM todos";      // Select all rows from our database table
@@ -53,7 +53,7 @@ namespace TodoApp
         }
         public void AddData(SQLiteCommand saveData)
         {
-            saveData.CommandText = "INSERT INTO todos (text, created, completed) Values ('travel somewhere')";     // Add the first entry into our database 
+            saveData.CommandText = "INSERT INTO todos (text, created, completed) Values ('travel somewhere',date('now'))";     // Add the first entry into our database 
             saveData.ExecuteNonQuery();
         }
 
@@ -61,5 +61,7 @@ namespace TodoApp
         {
             getAll.CommandText = "Select * FROM todos";
         }
+
+        public DateTime createdAtTodo { get; set; }
     }
 }

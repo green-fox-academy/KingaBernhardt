@@ -6,5 +6,9 @@ namespace TodoApp
 {
     class CreatedTodosColumn
     {
+        public class EntityBase
+        {
+            public DateTime createdAtTodo { get; set; }
+        }
     }
 }

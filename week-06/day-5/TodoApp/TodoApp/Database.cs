@@ -34,12 +34,10 @@ namespace TodoApp
 
                     GetInfo();
                     communication.ExecuteNonQuery();
-                    //communication.CommandText = "INSERT INTO todos (text, created, completed) Values ('buy bread',date('now'),'2018-06-23')";   // Add another entry into our database 
-                    //communication.ExecuteNonQuery();      // Execute the query
 
                     communication.CommandText = "Select * FROM todos";      // Select all rows from our database table
 
-                    using (System.Data.SQLite.SQLiteDataReader reader = communication.ExecuteReader())
+                    using (SQLiteDataReader reader = communication.ExecuteReader())
                     {
                         while (reader.Read())
                         {
@@ -89,7 +87,7 @@ namespace TodoApp
 
         public void LoadAll(SQLiteCommand getAll)
         {
-            getAll.CommandText = "Select * FROM todos";
+            getAll.CommandText = "SELECT * FROM todos";
         }
 
         public DateTime createdAtTodo { get; set; }

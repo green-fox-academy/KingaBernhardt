@@ -86,12 +86,6 @@ namespace TodoApp
                 }
             }
         }
-        /*public void AddData(SQLiteCommand saveData)
-        {
-
-            saveData.CommandText = "INSERT INTO todos (text, created, completed) Values ('" + the_todo + "', date('now'),'2018-07-24')";     // Add the first entry into our database 
-            saveData.ExecuteNonQuery();
-        }*/
 
         public void LoadAll(SQLiteCommand getAll)
         {

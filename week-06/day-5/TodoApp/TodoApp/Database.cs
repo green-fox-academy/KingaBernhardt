@@ -58,6 +58,7 @@ namespace TodoApp
             string completeDate = Console.ReadLine();
             AddInfos(todo, completeDate);
         }
+
         public void AddInfos(string the_todo, string the_completeDate)
         {
             var connection = new SQLiteConnection("Data Source=database.sqlite3");
@@ -89,7 +90,5 @@ namespace TodoApp
         {
             getAll.CommandText = "SELECT * FROM todos";
         }
-
-        public DateTime createdAtTodo { get; set; }
     }
 }

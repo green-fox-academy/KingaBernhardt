@@ -41,7 +41,7 @@ namespace TodoApp
                     {
                         while (reader.Read())
                         {
-                            Console.WriteLine(reader["text"] + " : " + reader["created"] + " : " + reader["completed"]);     // Display the value of the key and value column for every row
+                            Console.WriteLine(reader["text"] + " Created at: " + reader["created"] + " Needs to be done till: " + reader["completed"]);     // Display the value of the key and value column for every row
                         }
                     }
                     connection.Close();        // Close the connection to the database

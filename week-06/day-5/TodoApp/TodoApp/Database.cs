@@ -34,8 +34,8 @@ namespace TodoApp
 
                     GetInfo();
                     communication.ExecuteNonQuery();
-
-                    communication.CommandText = "Select * FROM todos";      // Select all rows from our database table
+                    LoadAll(communication);
+                    communication.ExecuteNonQuery();
 
                     using (SQLiteDataReader reader = communication.ExecuteReader())
                     {
@@ -54,7 +54,7 @@ namespace TodoApp
         {
             Console.WriteLine("Give me a todo");
             string todo = Console.ReadLine();
-            Console.WriteLine("When do you want it to be completed?");
+            Console.WriteLine("When do you want it to be completed: YYYY-MM-DD?");
             string completeDate = Console.ReadLine();
             AddInfos(todo, completeDate);
         }
@@ -73,7 +73,7 @@ namespace TodoApp
             }
             catch (Exception e)
             {
-                Console.WriteLine("not working "+ e.Data);
+                Console.WriteLine("why does it not work: "+ e.Data);
                 
             }
             finally

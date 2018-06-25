@@ -6,6 +6,8 @@ namespace Zoo
 {
     class Elephant : Animal
     {
+        private int counter = 0;
+
         public Elephant(string name) : base(name)
         {
         }
@@ -16,16 +18,16 @@ namespace Zoo
 
         public override bool isHungry()
         {
-            bool a = false;
-            if (a == false)
+            counter++;
+
+            if (counter % 2 == 0)
             {
-                a = true;
+                return true;
             }
             else
             {
-                a = false;
+                return false;
             }
-            return a; 
         }
     }
 }

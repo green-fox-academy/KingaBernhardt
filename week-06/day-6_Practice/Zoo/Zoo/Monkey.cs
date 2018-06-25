@@ -14,7 +14,12 @@ namespace Zoo
         {
             Random rnd = new Random();
             int prob = rnd.Next(100);
-            return prob <= 20;
+            return prob <= 50;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

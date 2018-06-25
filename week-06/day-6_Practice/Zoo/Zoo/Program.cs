@@ -53,8 +53,7 @@ namespace Zoo
                     Console.WriteLine(animal);
                 }
                 Console.ReadLine();
-            }
-            
+            } 
         }
     }
 }

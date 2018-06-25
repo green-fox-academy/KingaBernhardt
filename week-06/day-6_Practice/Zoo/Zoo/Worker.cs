@@ -33,8 +33,12 @@ namespace Zoo
             } 
         }
 
-        internal void SetAnimalsToLookAfter(List<Animal> list)
+        public void SetAnimalsToLookAfter(List<Animal> animal)
         {
+            foreach (Animal item in animal)
+            {
+                animalsToLookAfter.Add(item);
+            }
         }
     }
 }

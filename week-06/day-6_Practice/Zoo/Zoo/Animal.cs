@@ -9,17 +9,19 @@
 
         public Animal(string name)
         {
-            this.name = name;
+            this.Name = name;
             age = 0;
             gender = "";
         }
 
         public Animal(string name, int age, string gender)
         {
-            this.name = name;
+            this.Name = name;
             this.age = age;
             this.gender = gender;
         }
+
+        public string Name { get => name; set => name = value; }
 
         public void Eat()
         {
@@ -30,12 +32,7 @@
 
         public override string ToString()
         {
-            return name + " is a " + age + "years old" + gender + " animal and was fed " + fedTimes+  "times";
+            return Name + " is a " + age + "years old" + gender + " animal and was fed " + fedTimes+  "times";
         }
-        public void GetRange()
-        {
-
-        }
-
     }
 }

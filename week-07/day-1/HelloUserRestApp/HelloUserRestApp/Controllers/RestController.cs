@@ -18,7 +18,7 @@ namespace HelloUserRestApp.Controllers
         [Route("greeting")]
         public IActionResult Greet(string name)
         {
-            Greeting greeting = new Greeting() { Id = 1, Content = "Hello, " + name };
+            Greeting greeting = new Greeting("Hello, " + name);
             return new JsonResult(greeting);
         }
     }

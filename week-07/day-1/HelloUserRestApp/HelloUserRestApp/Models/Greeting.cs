@@ -17,7 +17,5 @@ namespace HelloUserRestApp.Models
         }
 
         public string Content { get; set; }
-
-
     }
 }

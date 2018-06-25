@@ -10,11 +10,6 @@ namespace HelloUserRestApp.Controllers
     [Route("web")]
     public class WebController : Controller
     {
-        [Route("greeting")]
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         [Route("greeting")]
         public IActionResult Greet()

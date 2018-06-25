@@ -19,17 +19,16 @@ namespace NthElementTest
         {
             List<int> nthNums = new List<int>() { };
             double sumNum = 0;
-
-            for (int i = 0; i < numbers.Length; i += n)
+            for (int i = n-1; i < numbers.Length; i += n)
             {
                 nthNums.Add(numbers[i]);
-
             }
             foreach (var item in nthNums)
             {
                 sumNum += item;
             }
-            double averageNum = sumNum * 1.0 / nthNums.Count;
+
+            double averageNum = sumNum / nthNums.Count;
             return averageNum;
         }
     }

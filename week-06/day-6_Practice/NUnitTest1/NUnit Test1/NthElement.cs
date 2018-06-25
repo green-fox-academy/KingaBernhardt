@@ -15,7 +15,6 @@ namespace NthElementTest
             * Write your test cases here. You should be able to invoke the method like this:
             * double result = NthElement.GetAverageForNthElements(numbers, n);
             */
-            Program prog = new Program();
 
             [Test]
             public void GetAverageForNthElements_testCase1()

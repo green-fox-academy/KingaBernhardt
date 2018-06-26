@@ -1,0 +1,31 @@
+﻿@model List<BankAccount>
+@{
+    ViewData["Title"] = "LionKing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>LionKing</h2>
+
+<table style="border: 1px solid black">
+    <thead style="border: 1px solid black">
+        <tr><th colspan="4">Bank Of Animals</th></tr>
+    </thead>
+    <tbody style="border: 1px solid black" width ="20%">
+        <tr>
+            <td>ID<td>
+            <td>Name</td>
+            <td>Balance</td>
+            <td>Type</td>
+        <tr>
+    @foreach(BankAccount account in Model)
+    {
+
+        <tr style="border: 1px solid black" width="20%">
+            <td style="border: 1px solid black" width="20%">@account.Id</td>
+            <td style="border: 1px solid black">@account.Name</td>
+            <td style="border: 1px solid black">@account.Balance</td>
+            <td style="border: 1px solid black">@account.AnimalType</td>
+        </tr>
+    }
+        </tbody>
+</table>

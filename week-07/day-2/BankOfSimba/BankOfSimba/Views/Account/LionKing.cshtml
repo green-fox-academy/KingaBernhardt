@@ -8,24 +8,45 @@
 
 <table style="border: 1px solid black">
     <thead style="border: 1px solid black">
-        <tr><th colspan="4">Bank Of Animals</th></tr>
+        <tr><th colspan="6"; text-align="center">Bank Of Animals</th></tr>
     </thead>
-    <tbody style="border: 1px solid black" width ="20%">
+    <tbody style="border: 1px solid black"; padding="20px">
         <tr>
-            <td>ID<td>
+            <td>ID</td>
             <td>Name</td>
             <td>Balance</td>
             <td>Type</td>
+            <td>King</td>
+            <td>GoodOrBad</td>
         <tr>
-    @foreach(BankAccount account in Model)
-    {
-
-        <tr style="border: 1px solid black" width="20%">
-            <td style="border: 1px solid black" width="20%">@account.Id</td>
-            <td style="border: 1px solid black">@account.Name</td>
-            <td style="border: 1px solid black">@account.Balance</td>
-            <td style="border: 1px solid black">@account.AnimalType</td>
-        </tr>
-    }
+            @for (int i = 0; i < Model.Count; i++)
+            {
+            <tr style="border: 1px solid black"; padding="20px">
+                <td style="border: 1px solid black"; padding="20px">@i</td>
+                <td style="border: 1px solid black"; padding="20px">@Model[i].Name</td>
+                <td style="border: 1px solid black"; padding="20px">@Model[i].Balance</td>
+                <td style="border: 1px solid black"; padding="20px">@Model[i].AnimalType</td>
+                <td style="border: 1px solid black">@Model[i].IsKing</td>
+                <td style="border: 1px solid black", padding="20px">
+                @if (Model[i].IsGood)
+                {
+                    <p>Goodguy</p>
+                }
+                else
+                {
+                    <p>Badguy</p>
+                }
+                </td>
+            </tr>
+            } 
         </tbody>
 </table>
+<form action="/AddCurrency" method="post">
+    <select name="id">
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            <option type="number" value="@i">@i</option>
+        }
+    </select>
+    <button type="submit" value="submit">Submit</button>
+</form>

@@ -9,6 +9,13 @@ namespace BankOfSimba.Controllers
 {
     public class AccountController : Controller
     {
+        public static List<BankAccount> bankAccounts = new List<BankAccount>()
+        {
+            new BankAccount() { Name = "Pumba", Balance = 305, AnimalType = "warthog", IsKing = false, IsGood = true },
+            new BankAccount() { Name = "Zordon", Balance = 1, AnimalType = "lion", IsKing = false, IsGood = false },
+            new BankAccount() { Name = "Timon", Balance = 359, AnimalType = "meercat", IsKing = false, IsGood = true },
+            new BankAccount() { Name = "Nala", Balance = 200, AnimalType = "lion", IsKing = false, IsGood = true },
+        };
         public IActionResult Index()
         {
             return View();
@@ -28,15 +35,15 @@ namespace BankOfSimba.Controllers
 
         public IActionResult LionKing()
         {
-            List<BankAccount> bankAccounts = new List<BankAccount>()
-            {
-                new BankAccount(){ Id = 1, Name = "Pumba", Balance = 305, AnimalType = "warthog"},
-                new BankAccount() {Id = 2, Name = "Zordon", Balance = 1, AnimalType= "lion"},
-                new BankAccount() {Id= 3, Name = "Timon", Balance = 359, AnimalType= "meercat"},
-                new BankAccount() {Id = 4, Name = "Nala", Balance = 200, AnimalType= "lion"}
-            };
-
-            return View(bankAccounts);
+            return View(bankAccounts); 
+        }
+        
+        [HttpPost]
+        [Route("AddCurrency")]
+        public IActionResult AddCurrency(int id)
+        {
+            bankAccounts[id].AddMoney(id);
+            return RedirectToAction("LionKing");
         }
     }
 }

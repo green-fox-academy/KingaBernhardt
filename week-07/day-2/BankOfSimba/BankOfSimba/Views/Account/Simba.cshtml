@@ -4,13 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Simba</h2>
-<p>Name</p>
+<h2>Bank Of Simba</h2>
 <p>@Model.Name</p>
 
-<p>Balance</p>
-<p>@Model.Balance</p>
+<p>@String.Format("{0:N2}", Model.Balance) @Model.Currency</p>
 
-<p>AnimalType</p>
 <p>@Model.AnimalType</p>
 

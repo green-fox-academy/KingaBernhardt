@@ -7,6 +7,7 @@ namespace Anagramm.Services
 {
     public interface IGetAnagram
     {
-        bool CheckAnagram(string input, string input2);
+        void CheckAnagram(string input, string input2);
+        string GetMessage();
     }
 }

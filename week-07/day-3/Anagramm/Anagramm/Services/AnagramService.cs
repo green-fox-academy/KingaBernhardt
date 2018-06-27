@@ -7,34 +7,27 @@ namespace Anagramm.Services
 {
     public class AnagramService : IGetAnagram
     {
-        public string CheckAnagram(string input, string input2)
+        private bool inputCheck;
+
+        public void CheckAnagram(string input, string input2)
         {
-            if (input.Length != input2.Length)
+            char[] temp = input.ToCharArray();
+            Array.Reverse(temp);
+            string anagramm = string.Join("", temp);
+
+            inputCheck = anagramm == input2;
+        }
+
+        public string GetMessage()
+        {
+            if (inputCheck)
             {
-                return "Not anagram";
-            }
-            else if (input == input2)
-            {
-                for (int i = 0; i < input.Length; i++)
-                {
-                    for (int j = 0; j < input2.Length; j++)
-                    {
-                        if (input[i] == input2[j])
-                        {
-                            input2 = " " + input2.Remove(j, 1);
-                        }
-                        else if (j == input.Length - 1)
-                        {
-                            return "Not anagrams";
-                        }
-                    }
-                }
+                return "This is an anagram pair.";
             }
             else
             {
-                return "Anagram pairs";
+                return "This is not an anagram pair.";
             }
-            return "Anagram pairs";
         }
     }
 }

@@ -14,6 +14,11 @@ namespace Anagramm.Controllers
         {
             this.anagram = anagram;
         }
+        [Route("")]
+        public IActionResult Try()
+        {
+            return Redirect("/macipufi");
+        }
 
         [HttpGet("macipufi")]
         public IActionResult Index()
@@ -25,10 +30,10 @@ namespace Anagramm.Controllers
         public IActionResult PostAnagram(string input, string input2)
         {
             anagram.CheckAnagram(input, input2);
-            return Redirect("/");
+            return Redirect("anagram");
         }
 
-        [HttpGet("/")]
+        [HttpGet("anagram")]
         public IActionResult GetAnagram()
         {
             return View(anagram);

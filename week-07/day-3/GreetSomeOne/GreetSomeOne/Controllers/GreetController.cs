@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GreetSomeOne.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GreetSomeOne.Controllers
 {
     public class GreetController : Controller
     {
+        private IGreeter greet;
+        public GreetController(IGreeter greet)
+        {
+            this.greet = greet;
+        }
         [HttpGet("/")]
         public IActionResult Index()
         {
@@ -15,15 +21,16 @@ namespace GreetSomeOne.Controllers
         }
 
         [HttpPost("/")]
-        public IActionResult Greeting()
+        public IActionResult Greeting(string name)
         {
-            return View();
+            greet.SetName(name);
+            return RedirectToAction("Greet");
         }
 
-        [HttpGet("/")]
+        [HttpGet("Greet")]
         public IActionResult Greet()
         {
-            return View();
+            return View(greet);
         }
     }
 }

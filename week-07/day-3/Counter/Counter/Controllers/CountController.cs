@@ -2,31 +2,32 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Counter.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Counter.Controllers
 {
     public class CountController : Controller
     {
+        private ICounter counter;
+
+        public CountController(ICounter counter)
+        {
+            this.counter = counter;
+        }
+
+        [HttpGet("/")]
         public IActionResult Index()
         {
-            return View();
+            return View(counter.GetNumber());
         }
         
-        [HttpGet("count")]
-        public IActionResult GetCount()
-        {
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost]
+        
+        [HttpPost("/")]
         public IActionResult RaiseCounter()
         {
-            if (true)
-            {
-
-            }
-            return View();
+            counter.Increase();
+            return RedirectToAction("Index");
         }
     }
 }

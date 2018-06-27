@@ -1,8 +1,11 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿@model string
 
-<h2>Index</h2>
+<h2>Anagram Game</h2>
+<form action="macipufi" method="post">
+    <label>First input</label>
+    <input type="text" name="input" value="" />
+    <label>Second input</label>
+    <input type="text" name="input2" value="" />
+    <button type="submit">Click to check</button>
+</form>
 

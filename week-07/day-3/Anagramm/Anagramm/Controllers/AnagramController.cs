@@ -2,28 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Anagramm.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Anagramm.Controllers
 {
     public class AnagramController : Controller
     {
-        [HttpGet("/")]
+        private IGetAnagram anagram;
+        public AnagramController(IGetAnagram anagram)
+        {
+            this.anagram = anagram;
+        }
+
+        [HttpGet("macipufi")]
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpPost("/")]
-        public IActionResult PostAnagram(string input)
+        [HttpPost("macipufi")]
+        public IActionResult PostAnagram(string input, string input2)
         {
-            return View();
+            anagram.CheckAnagram(input, input2);
+            return Redirect("/");
         }
 
         [HttpGet("/")]
         public IActionResult GetAnagram()
         {
-            return View();
+            return View(anagram);
         }
     }
 }

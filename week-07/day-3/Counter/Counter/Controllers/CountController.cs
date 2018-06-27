@@ -13,9 +13,8 @@ namespace Counter.Controllers
             return View();
         }
         
-        [HttpGet]
-        [Route("Count")]
-        public IActionResult Count()
+        [HttpGet("count")]
+        public IActionResult GetCount()
         {
             return RedirectToAction("Index");
         }

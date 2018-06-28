@@ -11,17 +11,16 @@ namespace Anagramm.Services
 
         public void CheckAnagram(string input, string input2)
         {
-            char[] WordOneArray = input.ToCharArray();
-            char[] WordTwoArray = input2.ToCharArray();
-            if (WordOneArray.Length != WordTwoArray.Length)
+            input = String.Concat(input.OrderBy(c => c));
+            input2 = String.Concat(input2.OrderBy(c => c));
+
+            if (input == input2)
             {
-                inputCheck = false;
+                inputCheck = true;
             }
             else
             {
-                Array.Sort(WordOneArray);
-                Array.Sort(WordTwoArray);
-                inputCheck = WordOneArray.ToString().Equals(WordTwoArray.ToString());
+                inputCheck = false;
             }
         }
 

@@ -7,5 +7,6 @@ namespace FoxClub.Models
 {
     public class TrickModel
     {
+
     }
 }

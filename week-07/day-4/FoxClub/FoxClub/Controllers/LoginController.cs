@@ -12,5 +12,18 @@ namespace FoxClub.Controllers
         {
             return View();
         }
+
+        [HttpGet("/login")]
+        public IActionResult GetLogIn()
+        {
+            return View();
+            
+        }
+
+        [HttpPost("")]
+        public IActionResult PostResult(string name)
+        {
+            return Redirect();
+        }
     }
 }

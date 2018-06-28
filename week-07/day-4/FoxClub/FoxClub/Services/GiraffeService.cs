@@ -40,5 +40,15 @@ namespace FoxClub.Services
         {
             return giraffeModel.Food = "hummus";
         }
+
+        public string GetName()
+        {
+            return giraffeModel.Name;
+        }
+
+        public void SetName(string name)
+        {
+            giraffeModel.Name = name;
+        }
     }
 }

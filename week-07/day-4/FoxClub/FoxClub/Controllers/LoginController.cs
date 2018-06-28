@@ -30,7 +30,7 @@ namespace FoxClub.Controllers
         [HttpPost("")]
         public IActionResult PostResult(string name)
         {
-            return Redirect();
+            return Redirect("giraffeMaker");
         }
     }
 }

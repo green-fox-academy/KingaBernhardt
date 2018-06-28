@@ -1,11 +1,10 @@
-﻿@model GiraffeModel
-
+﻿@model FoxClub.Services.IGiraffeMaker
 <h1>Welcome to Programmer's Giraffe Club</h1>
 <h2>Login</h2>
     <body>
         <form action="/login" method="post">
              <h4>Please provide a name so you may associate it to Your pet</h4>
-             <input type="text" placeholder="name" required autofocus><br />
+             <input type="text" placeholder="name" name="name" required autofocus><br />
              <button type="submit" value="GO" padding="10">GO</button>
         </form>
     </body>

@@ -1,0 +1,14 @@
+﻿@model FoxClub.Services.IGiraffeMaker
+<ul>
+    <li>Information</li>
+</ul>
+<img src="~/images/giraffe.jpg" alt="Alternate Text" />
+<p>This is Mr.@Model.GetName() . It loves to eat @Model.Eat() and drink @Model.Drink() .</p>
+<p>He knows @Model.DoTricks() .</p>
+<p>Known Tricks</p>
+<ul>
+    @for (int i = 0; i < @Model.DoTricks().Length; i++)
+    {
+        <li>@Model.DoTricks()[i]</li>
+    }
+</ul>

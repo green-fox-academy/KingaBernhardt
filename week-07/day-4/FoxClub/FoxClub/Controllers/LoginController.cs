@@ -20,17 +20,24 @@ namespace FoxClub.Controllers
             return View();
         }
 
-        [HttpGet("/login")]
+        [HttpGet(" ")]
         public IActionResult GetLogIn()
         {
-            return View();
+            return View("info");
             
         }
 
-        [HttpPost("")]
+        [HttpPost]
         public IActionResult PostResult(string name)
         {
-            return Redirect("giraffeMaker");
+            giraffeMaker.SetName(name);
+            return Redirect("index");
+        }
+
+        [HttpGet("index")]
+        public IActionResult Info()
+        {
+            return View(giraffeMaker.GetName());
         }
     }
 }

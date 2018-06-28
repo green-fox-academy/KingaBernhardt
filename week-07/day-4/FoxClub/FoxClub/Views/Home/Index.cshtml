@@ -1,17 +1,10 @@
-﻿@model GiraffeModel
-@{
-    ViewData["Title"] = "Home Page";
-}
-
-<ul>
-    <li href="">Information</li>
-</ul>
-<img src="~/images/giraffe.jpg" width="400" height="400"/>
-<p>This is Mr @Model.Name. He loves @Model.Food and @Model.Drink . He knows @Model.TheTricks.Count tricks.</p>
-<h2>Known tricks</h2>
-<ul>
-    @for (int i = 0; i < @Model.TheTricks.Count; i++)
-    {
-        <li>@Model.TheTricks[i]</li>
-    }
-</ul>
+﻿<h1>Welcome to Programmer's Giraffe Club</h1>
+<h2>Login</h2>
+<body>
+    <form action="/login/PostResult" method="post">
+        <h4>Please provide a name so you may associate it to Your pet</h4>
+        <input type="text" placeholder="Name" name="name" required autofocus>
+        <p></p>
+        <button type="submit" value="GO" padding="20">GO</button>
+    </form>
+</body>

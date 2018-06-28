@@ -12,7 +12,7 @@ namespace FoxClub.Controllers
     {
         public IActionResult Index()
         {
-            return View("login");
+            return View();
         }
 
         public IActionResult About()

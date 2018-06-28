@@ -1,14 +1,17 @@
-﻿@{
+﻿@model GiraffeModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <ul>
     <li href="">Information</li>
 </ul>
-<img src="~/images/giraffe.jpg" alt="Alternate Text" width="400" height="400"/>
-<p>This is Mr Giraffe. He loves spagetti and beer. He knows 2 tricks.</p>
+<img src="~/images/giraffe.jpg" width="400" height="400"/>
+<p>This is Mr @Model.Name. He loves @Model.Food and @Model.Drink. He knows @Model.TheTricks.Count tricks.</p>
 <h2>Known tricks</h2>
 <ul>
-    <li>Use ASP.NET</li>
-    <li>Touch the sky.</li>
+    @for (int i = 0; i < @Model.TheTricks.Count; i++)
+    {
+        <li>@Model.TheTricks[i]</li>
+    }
 </ul>

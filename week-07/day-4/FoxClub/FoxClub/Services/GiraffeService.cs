@@ -9,29 +9,36 @@ namespace FoxClub.Services
     public class GiraffeService : IGiraffeMaker
     {
         private GiraffeModel giraffeModel;
-        private List<string> tricks;
 
         public void AddTrick(string giveTrick)
         {
-            tricks.Add(giveTrick);
+            giraffeModel.TheTricks.Add(giveTrick);
         }
 
-        public string DoTricks(List<string> trickInput)
+        public int CountTricks()
         {
-            for (int i = 0; i < tricks.Count; i++)
+            for (int i = 0; i < giraffeModel.TheTricks.Count; i++)
             {
-                if (tricks == null)
+                return giraffeModel.TheTricks.Count;
+            }
+            return giraffeModel.TheTricks.Count;
+        }
+
+        public string DoTricks()
+        {
+            for (int i = 0; i < giraffeModel.TheTricks.Count; i++)
+            {
+                if (giraffeModel.TheTricks == null)
                 {
                     return "does not do trick yet";
                 }
                 else
                 {
-                    return tricks[i];
+                    return giraffeModel.TheTricks[i];
                 }
             }
-            return trickInput.ToString();
+            return giraffeModel.TheTricks.ToString();
         }
-
 
         public string Drink()
         {
@@ -42,7 +49,5 @@ namespace FoxClub.Services
         {
             return giraffeModel.Food = "hummus";
         }
-
-        
     }
 }

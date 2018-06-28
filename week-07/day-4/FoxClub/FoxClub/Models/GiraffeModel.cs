@@ -10,6 +10,6 @@ namespace FoxClub.Models
         public string Name { get; set; }
         public string Food { get; set; }
         public string Drink { get; set; }
-        public List<TrickModel> TricksOfPets {get; set;}
+        public List<string> TheTricks {get;set;}
     }
 }

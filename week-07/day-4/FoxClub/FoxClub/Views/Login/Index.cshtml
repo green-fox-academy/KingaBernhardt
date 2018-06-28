@@ -1,25 +1,16 @@
-﻿@model FoxClub.Services.IGiraffeMaker
-<ul>
-    <li>Let's set some information</li>
-</ul>
-<img src="~/images/giraffe.jpg" alt="Alternate Text" />
-<p>This is Mr.@Model.GetName() .</p>
-<p>Choose what it loves to eat and drink: </p>
-<input type="text" name="inputFood" placeholder="food" />
-<input type="text" name="inputDrink" placeholder="drink"/>
-<p>Let us know if it can do some trick.</p>
-<label>How much trick it can do?</label>
-<input type="number" name="amountOfTricks" value="amount" />
-<label>What is it?</label>
-<input type="text" name="trickName" value="trick name" />
-<input type="submit" name="submitButton" value="" />
+﻿@model FoxClub.Services.GiraffeService
+<h2>Let's set some information</h2>
 
-<p>@Model.GetFood() and drink @Model.GetDrink() .</p>
-<p>He knows @Model.DoTricks() .</p>
-<p>Known Tricks</p>
-<ul>
-    @for (int i = 0; i < @Model.DoTricks().Length; i++)
-    {
-        <li>@Model.DoTricks()[i]</li>
-    }
-</ul>
+<img src="~/images/giraffe.jpg" alt="Alternate Text" width="500" height="500" />
+<h2>This is Mr @Model.GetName()</h2>
+<form action="/Login/index" method="post">
+    <label>Choose what it loves to eat and drink: </label>
+    <input type="text" name="inputFood" placeholder="food" />
+    <input type="text" name="inputDrink" placeholder="drink" />
+    <label>Let us know if it can do some trick.</label>
+    <label>How much trick it can do?</label>
+    <input type="number" name="amountOfTricks" placeholder="amount" />
+    <label>What is it?</label>
+    <input type="text" name="trickName" placeholder="trick name" />
+    <input type="submit" name="submitButton" value="Learn" />
+</form>

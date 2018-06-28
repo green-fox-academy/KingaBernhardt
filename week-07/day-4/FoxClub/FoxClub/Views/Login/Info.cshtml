@@ -1,8 +1,11 @@
-﻿
-@{
-    ViewData["Title"] = "Info";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿@model FoxClub.Services.IGiraffeMaker
 
-<h2>Info</h2>
+<h2>Here is your Pet</h2>
+<img src="~/images/giraffe.jpg" alt="Alternate Text" />
+<p>@Model.GetFood() and drink @Model.GetDrink() .</p>
+<p></p>
+<p>Known Tricks</p>
+<ul>
+   <li>@Model.GetTrick()</li>
+</ul>
 

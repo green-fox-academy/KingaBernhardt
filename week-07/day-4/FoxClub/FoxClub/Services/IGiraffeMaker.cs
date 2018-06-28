@@ -8,14 +8,15 @@ namespace FoxClub.Services
     public interface IGiraffeMaker
     {
         string GetName();
-        void SetName(string name);
+        void SetName(string petName);
         void SetDrink(string inputDrink);
         string GetDrink();
         void SetFood(string inputFood);
         string GetFood();
-        string SetTrick(string trickName);
-        int CountTrick(int amountOfTricks);
-        string DoTricks();
+        void SetTrick(string trickName);
+        string GetTrick();
+        //int CountTrick(int amountOfTricks);
+        //string DoTricks();
         string ToString();
     }
 }

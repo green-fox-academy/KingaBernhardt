@@ -40,7 +40,7 @@ namespace FoxClub
             }
 
             app.UseStaticFiles();
-
+            app.UseMvcWithDefaultRoute();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

@@ -10,14 +10,10 @@ namespace FoxClub.Controllers
     public class LoginController : Controller
     {
         private IGiraffeMaker giraffeMaker;
+
         public LoginController(IGiraffeMaker giraffeMaker)
         {
             this.giraffeMaker = giraffeMaker;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
         }
 
         [HttpGet(" ")]
@@ -28,16 +24,18 @@ namespace FoxClub.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostResult(string name)
+        public IActionResult PostResult([FromForm]string petName)
         {
-            giraffeMaker.SetName(name);
-            return Redirect("index");
+            giraffeMaker.SetName(petName);
+            return Redirect("Index");
         }
 
-        [HttpGet("index")]
-        public IActionResult Info()
+        [HttpGet]
+        public IActionResult Index()
         {
-            return View(giraffeMaker.GetName());
+            return View(giraffeMaker);
         }
+
+        
     }
 }

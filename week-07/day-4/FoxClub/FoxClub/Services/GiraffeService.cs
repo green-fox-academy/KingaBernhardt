@@ -9,7 +9,11 @@ namespace FoxClub.Services
     public class GiraffeService : IGiraffeMaker
     {
         private GiraffeModel giraffeModel;
-        public string Name { get; set; }
+
+        public GiraffeService()
+        {
+            giraffeModel = new GiraffeModel() { Name = "a" };
+        }
 
         public void SetTrick(string trickName)
         {
@@ -57,14 +61,14 @@ namespace FoxClub.Services
             giraffeModel.InputFood = inputFood;
         }
 
-        public string GetName()
+        public void SetName(string petName)
         {
-            return Name;
+            giraffeModel.Name = petName;
         }
 
-        public void SetName(string name)
+        public string GetName()
         {
-            Name = name;
+            return giraffeModel.Name;
         }
     }
 }

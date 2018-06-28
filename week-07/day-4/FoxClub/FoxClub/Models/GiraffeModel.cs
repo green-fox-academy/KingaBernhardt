@@ -7,6 +7,7 @@ namespace FoxClub.Models
 {
     public class GiraffeModel
     {
+        public string Name { get; set; }
         public string InputFood { get; set; }
         public string InputDrink { get; set; }
         public List<string> PetFoods { get; set; }

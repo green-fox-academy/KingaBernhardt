@@ -36,6 +36,18 @@ namespace FoxClub.Controllers
             return View(giraffeMaker);
         }
 
-        
+        [HttpPost]
+         public IActionResult Info([FromForm]string inputFood, string inputDrink, string trickName, int amountOfTricks)
+        {
+            giraffeMaker.SetDrink(inputDrink);
+            giraffeMaker.SetFood(inputFood);
+            giraffeMaker.SetTrick(trickName);
+            return RedirectToAction("Information");
+        }
+        [HttpGet]
+        public IActionResult Information()
+        {
+            return View(giraffeMaker);
+        }
     }
 }

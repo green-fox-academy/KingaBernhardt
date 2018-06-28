@@ -11,12 +11,17 @@ namespace FoxClub.Services
         private GiraffeModel giraffeModel;
         public string Name { get; set; }
 
-        public void AddTrick(string giveTrick)
+        public void SetTrick(string trickName)
         {
-            giraffeModel.TheTricks.Add(giveTrick);
+            giraffeModel.Trick = trickName;
         }
 
-        public string DoTricks()
+        public string GetTrick()
+        {
+            return giraffeModel.Trick;
+        }
+
+        /*public string DoTricks()
         {
             for (int i = 0; i < giraffeModel.TheTricks.Count; i++)
             {
@@ -30,16 +35,26 @@ namespace FoxClub.Services
                 }
             }
             return giraffeModel.TheTricks.ToString();
+        }*/
+
+        public string GetDrink()
+        {
+            return giraffeModel.InputDrink;
         }
 
-        public string Drink()
+        public void SetDrink(string inputDrink)
         {
-            return giraffeModel.Drink = "sprite";
+            giraffeModel.InputDrink = inputDrink;
         }
 
-        public string Eat()
+        public string GetFood()
         {
-            return giraffeModel.Food = "hummus";
+            return giraffeModel.InputFood;
+        }
+
+        public void SetFood(string inputFood)
+        {
+            giraffeModel.InputFood = inputFood;
         }
 
         public string GetName()

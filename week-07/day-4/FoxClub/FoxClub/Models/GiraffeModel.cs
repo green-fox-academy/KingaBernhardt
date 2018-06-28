@@ -11,6 +11,6 @@ namespace FoxClub.Models
         public string InputDrink { get; set; }
         public List<string> PetFoods { get; set; }
         public List<string> PetDrinks { get; set; }
-        public List<string> TheTricks {get;set;}
+        public string Trick {get;set;}
     }
 }

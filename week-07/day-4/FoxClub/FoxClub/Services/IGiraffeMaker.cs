@@ -13,10 +13,9 @@ namespace FoxClub.Services
         string GetDrink();
         void SetFood(string inputFood);
         string GetFood();
-        void AddTrick(string giveTrick);
+        string SetTrick(string trickName);
+        int CountTrick(int amountOfTricks);
         string DoTricks();
         string ToString();
-        string Eat();
-        string Drink();
     }
 }

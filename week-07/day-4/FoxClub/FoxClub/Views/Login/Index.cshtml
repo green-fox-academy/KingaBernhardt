@@ -1,9 +1,20 @@
 ﻿@model FoxClub.Services.IGiraffeMaker
 <ul>
-    <li>Information</li>
+    <li>Let's set some information</li>
 </ul>
 <img src="~/images/giraffe.jpg" alt="Alternate Text" />
-<p>This is Mr.@Model.GetName() . It loves to eat @Model.Eat() and drink @Model.Drink() .</p>
+<p>This is Mr.@Model.GetName() .</p>
+<p>Choose what it loves to eat and drink: </p>
+<input type="text" name="inputFood" placeholder="food" />
+<input type="text" name="inputDrink" placeholder="drink"/>
+<p>Let us know if it can do some trick.</p>
+<label>How much trick it can do?</label>
+<input type="number" name="amountOfTricks" value="amount" />
+<label>What is it?</label>
+<input type="text" name="trickName" value="trick name" />
+<input type="submit" name="submitButton" value="" />
+
+<p>@Model.GetFood() and drink @Model.GetDrink() .</p>
 <p>He knows @Model.DoTricks() .</p>
 <p>Known Tricks</p>
 <ul>

@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 
 namespace FoxClub.Services
 {
-    interface IGiraffeMaker
+    public interface IGiraffeMaker
     {
+        void AddTrick();
+        string DoTricks();
+        string ToString();
         string Eat();
         string Drink();
-        string ToString();
     }
 }

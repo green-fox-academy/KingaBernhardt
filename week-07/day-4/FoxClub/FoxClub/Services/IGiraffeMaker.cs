@@ -8,8 +8,7 @@ namespace FoxClub.Services
     public interface IGiraffeMaker
     {
         void AddTrick(string giveTrick);
-        string DoTricks(List<string> trickInput);
-        int CountTricks(List<string> trickInput);
+        string DoTricks();
         string ToString();
         string Eat();
         string Drink();

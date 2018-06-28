@@ -15,15 +15,6 @@ namespace FoxClub.Services
             giraffeModel.TheTricks.Add(giveTrick);
         }
 
-        public int CountTricks()
-        {
-            for (int i = 0; i < giraffeModel.TheTricks.Count; i++)
-            {
-                return giraffeModel.TheTricks.Count;
-            }
-            return giraffeModel.TheTricks.Count;
-        }
-
         public string DoTricks()
         {
             for (int i = 0; i < giraffeModel.TheTricks.Count; i++)

@@ -17,11 +17,17 @@ namespace FoxClub.Services
 
         public void SetTrick(string trickName)
         {
-            giraffeModel.Trick = trickName;
+            giraffeModel.TrickName = trickName;
         }
 
         public string GetTrick()
         {
+            return giraffeModel.TrickName;
+        }
+
+        public List<string> AddToTrick()
+        {
+            giraffeModel.Trick.Add(giraffeModel.TrickName);
             return giraffeModel.Trick;
         }
 

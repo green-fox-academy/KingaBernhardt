@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FoxClub.Services
 {
-    public class NutritionService
+    public class NutritionService :INutritionStore
     {
         private GiraffeModel giraffe;
         private NutritionStoreModel nutritionStoreModel;

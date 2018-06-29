@@ -15,6 +15,7 @@ namespace FoxClub.Services
         string GetFood();
         void SetTrick(string trickName);
         string GetTrick();
+        List<string> AddToTrick();
         //int CountTrick(int amountOfTricks);
         //string DoTricks();
         string ToString();

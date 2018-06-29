@@ -1,6 +1,6 @@
 ﻿@model FoxClub.Services.IGiraffeMaker
 
-<h2>Here is your Pet</h2>
+<h2>Here is your pet, @Model.GetName()</h2>
 <img src="~/images/giraffe2.jpg" width="400" height="400" />
 <p>How great, it loves to eat @Model.GetFood() and drink @Model.GetDrink().</p>
 <p></p>
@@ -11,6 +11,9 @@
 <p>Do you want to feed it with something else?</p>
 <p></p>
 <p>Let's go to the famous Nutrition Web Store.</p>
-<link href="Giraffe/Nutrition" rel="stylesheet" name="Click to webshop" />
+<form action="~/Giraffe/Giraffe" method="get">
+<link href="~/Giraffe/Nutrition" rel="stylesheet"/>
+<button type="submit">Click to visit</button>
+</form>
 
 

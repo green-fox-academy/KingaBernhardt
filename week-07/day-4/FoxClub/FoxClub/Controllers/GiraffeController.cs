@@ -22,13 +22,19 @@ namespace FoxClub.Controllers
         [HttpGet]
         public IActionResult Nutrition()
         {
-            return View("Fox");
+            return View(nutrition);
         }
 
         [HttpPost]
         public IActionResult AddNutrition()
         {
             return RedirectToAction("Info");
+        }
+
+        [HttpGet]
+        public IActionResult Show()
+        {
+            return View();
         }
     }
 }

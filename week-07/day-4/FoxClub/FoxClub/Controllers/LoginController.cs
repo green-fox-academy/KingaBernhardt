@@ -30,14 +30,14 @@ namespace FoxClub.Controllers
         }
 
         [HttpGet]
-        [Route("IndexPage")]
+        [Route("Index")]
         public IActionResult Index()
         {
             return View(giraffeMaker);
         }
 
         [HttpPost]
-         public IActionResult Info([FromForm] string inputFood, string inputDrink, string trickName, int amountOfTricks)
+         public IActionResult Info([FromForm] string inputFood, string inputDrink, string trickName)
         {
             giraffeMaker.SetDrink(inputDrink);
             giraffeMaker.SetFood(inputFood);

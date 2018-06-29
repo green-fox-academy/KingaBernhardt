@@ -1,0 +1,26 @@
+﻿@model FoxClub.Services.NutritionService
+
+<h2>Nutrition Store</h2>
+<img src="~/images/nutrition.jpg" alt="Alternate Text" width="300" height="300"/>
+<h4>If your pet is hungry or thirsty this is where you can buy nutrients for it. Let's see what foods and drink it can consume.</h4>
+<form action="/" method="post">
+    <label for="food-select">Choose a food:</label>
+    <select id="food-select">
+        <option value="none" selected>--Please choose an option--</option>
+        @foreach (var food in Model.AddNutritions())
+        {
+            <option value="food">@food</option>
+        }
+    </select>
+    <p></p>
+    <label for="drink-select">Choose a drink:</label>
+    <select id="drink-select">
+        <option value="none" selected>--Please choose an option--</option>
+        @foreach (var drink in Model.AddBeverages())
+        {
+            <option value="drink">@drink</option>
+        }
+    </select>
+    <button type="submit">Save</button>
+</form>
+

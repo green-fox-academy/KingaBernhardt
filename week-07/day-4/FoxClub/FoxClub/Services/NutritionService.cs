@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoxClub.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,31 +8,25 @@ namespace FoxClub.Services
 {
     public class NutritionService
     {
-        public List<string> PetFoods { get; set; }
-        public List<string> PetDrinks { get; set; }
+        private GiraffeModel giraffe;
+        private NutritionStoreModel nutritionStoreModel;
+
+        public NutritionService()
+        {
+            giraffe = new GiraffeModel() { };
+            nutritionStoreModel = new NutritionStoreModel() { };
+        }       
 
         public List<string> AddNutritions()
         {
-            PetFoods.Add("meatball");
-            PetFoods.Add("milkrise");
-            PetFoods.Add("mashed potato");
-            PetFoods.Add("ham and eggs");
-            PetFoods.Add("hawai pizza");
-            PetFoods.Add("breaded cheese");
-
-            return PetFoods;
+            nutritionStoreModel.PetFoods.Add(giraffe.InputFood);
+            return nutritionStoreModel.PetFoods;
         }
 
         public List<string> AddBeverages()
         {
-            PetDrinks.Add("glass of water");
-            PetDrinks.Add("juice");
-            PetDrinks.Add("glass of beer");
-            PetDrinks.Add("english tea");
-            PetDrinks.Add("joghurt");
-            PetDrinks.Add("wine");
-
-            return PetDrinks;
+            nutritionStoreModel.PetDrinks.Add(giraffe.InputDrink);
+            return nutritionStoreModel.PetDrinks;
         }
     }
 }

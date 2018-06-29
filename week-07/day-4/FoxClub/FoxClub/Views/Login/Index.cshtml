@@ -2,15 +2,16 @@
 <h2>Let's set some information</h2>
 
 <img src="~/images/giraffe.jpg" alt="Alternate Text" width="500" height="500" />
-<h2>This is Mr @Model.GetName()</h2>
-<form action="/Login/Index" method="post">
+<h2>It's @Model.GetName()</h2>
+<form action="/Login/info" method="post">
     <label>Choose what it loves to eat and drink: </label>
     <input type="text" name="inputFood" placeholder="food" />
     <input type="text" name="inputDrink" placeholder="drink" />
     <label>Let us know if it can do some trick.</label>
+    <p></p>
     <label>How much trick it can do?</label>
     <input type="number" name="amountOfTricks" placeholder="amount" />
     <label>What is it?</label>
     <input type="text" name="trickName" placeholder="trick name" />
-    <input type="submit" name="submitButton" value="Learn" />
+    <button type="submit" name="submitButton" value="Learn">Save Info</button>
 </form>

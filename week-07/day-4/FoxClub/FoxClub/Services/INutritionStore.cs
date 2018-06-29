@@ -7,7 +7,7 @@ namespace FoxClub.Services
 {
     public interface INutritionStore
     {
-        List<string> AddNutritions()
-        List<string> AddBeverages()
+        List<string> AddNutritions();
+        List<string> AddBeverages();
     }
 }

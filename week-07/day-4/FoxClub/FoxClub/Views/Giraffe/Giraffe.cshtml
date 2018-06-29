@@ -1,9 +1,11 @@
 ﻿@model FoxClub.Services.NutritionService
 
+<div>
 <h2>Nutrition Store</h2>
 <img src="~/images/nutrition.jpg" alt="Alternate Text" width="300" height="300"/>
 <h4>If your pet is hungry or thirsty this is where you can buy nutrients for it. Let's see what foods and drink it can consume.</h4>
-<form action="/" method="post">
+<p></p>
+<form action="/Login/Index" method="post">
     <label for="food-select">Choose a food:</label>
     <select id="food-select">
         <option value="none" selected>--Please choose an option--</option>
@@ -23,4 +25,5 @@
     </select>
     <button type="submit">Save</button>
 </form>
+    </div>
 

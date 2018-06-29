@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FoxClub.Controllers
 {
-    public class FoxController : Controller
+    public class GiraffeController : Controller
     {
         private INutritionStore nutrition;
-        public FoxController(INutritionStore nutrition)
+        public GiraffeController(INutritionStore nutrition)
         {
             this.nutrition = nutrition; 
         }
@@ -28,7 +28,7 @@ namespace FoxClub.Controllers
         [HttpPost]
         public IActionResult AddNutrition()
         {
-            return RedirectToAction();
+            return RedirectToAction("Info");
         }
     }
 }

@@ -1,0 +1,16 @@
+﻿@model FoxClub.Services.IGiraffeMaker
+
+<h2>Welcome to International Giraffe School</h2>
+    <form action="/Login/Index" method="post">
+        <label for="food-select">Choose a food:</label>
+        <select id="food-select">
+            <option value="none" selected>--Please choose an option--</option>
+            @foreach (var trick in Model.AddToTrick())
+            {
+                <option value="trick">@trick</option>
+            }
+        </select>
+        <p></p>
+        <label for="drink-select">Choose a drink:</label>
+    </form>
+

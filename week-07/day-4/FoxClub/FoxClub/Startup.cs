@@ -23,6 +23,7 @@ namespace FoxClub
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IGiraffeMaker, GiraffeService>();
+            services.AddSingleton<INutritionStore, NutritionService>();
             services.AddMvc();
         }
 

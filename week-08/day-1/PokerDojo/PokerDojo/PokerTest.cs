@@ -18,6 +18,21 @@ namespace PokerDojo
             Assert.AreEqual(true, output);
         }
 
+        [TestCase]
+        public void TestIfCardIsTwo(string input)
+        {
+            string output = poker.GetValue(input);
+            Assert.AreEqual("2", output);
+        }
+
+        [TestCase]
+        public void TestIfCardIsEleven(string input)
+        {
+            string output = poker.GetValue(input);
+            Assert.AreEqual("J", output);
+        }
+
+        [TestCase]
         public void GetHands()
         {
             string input = "Black: 2H 3D 5S 9C KD White: 2C 3H 4S 8C AH";

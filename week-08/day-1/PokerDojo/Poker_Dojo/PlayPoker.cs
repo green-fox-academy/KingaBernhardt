@@ -12,48 +12,33 @@ namespace Poker_Dojo
            return temp.Length == 10;
         }
 
-        public string GetValue(string input)
+        public int GetValue(string input)
         {
             try
             {
-                string output = input;
+                int output = Int32.Parse(input);
                 return output;
             }
             catch (Exception)
             {
                 if (input.Equals("J"))
                 {
-                    return "11";
+                    return 11;
                 }
                 else if (input.Equals("D"))
                 {
-                    return "12";
+                    return 12;
                 }
                 else if (input.Equals("K"))
                 {
-                    return "13";
+                    return 13;
                 }
                 else if (input.Equals("A"))
                 {
-                    return "14";
+                    return 14;
                 }
-                return "0";
+                return 0;
             }
-        }
-
-        public string GetHands(string input)
-        {
-            string[] raw = input.Split(" ");
-            string[] white = new string[5];
-            string[] black = new string[5];
-
-            for (int i = 0; i < 5; i++)
-            {
-                black[i] = raw[i + 1];
-                white[i] = raw[i + 7];
-            }
-
-            return ("White wins");
         }
     }
 }

@@ -28,7 +28,7 @@ namespace FoxClub.Controllers
         [HttpPost]
         public IActionResult AddNutrition()
         {
-            return RedirectToAction("Info");
+            return RedirectToAction("Info", "Login");
         }
 
         [HttpGet]

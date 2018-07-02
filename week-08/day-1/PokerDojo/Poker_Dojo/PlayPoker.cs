@@ -8,8 +8,8 @@ namespace Poker_Dojo
     {
         public bool CheckInputLenght(string input)
         {
-            string[] temp = input.Split(' ');
-           return input.Length == 12;
+            string[] temp = input.Split(" ");
+           return temp.Length == 10;
         }
     }
 }

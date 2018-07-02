@@ -15,8 +15,7 @@ namespace PokerDojo
         {
             string input = "2H 3D 5S 9C KD 2C 3H 4S 8C AH";
             bool output = poker.CheckInputLenght(input);
-            Assert.AreEqual(true, input);
-            
+            Assert.AreEqual(true, output);
         }
     }
 }

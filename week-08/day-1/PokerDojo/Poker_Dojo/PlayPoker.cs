@@ -40,5 +40,17 @@ namespace Poker_Dojo
                 return 0;
             }
         }
+
+        public int GetMoreValue(string input)
+        {
+            if (input.Length < 3)
+            {
+                return GetValue(input[0].ToString());
+            }
+            else
+            {
+                return 10;
+            }
+        }
     }
 }

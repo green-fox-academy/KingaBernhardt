@@ -55,6 +55,12 @@ namespace PokerDojo
             Assert.AreEqual(14, output);
         }
 
+        [TestCase("2C")]
+        public void TestIfCardIsTwoC(string input)
+        {
+            int output = poker.GetMoreValue(input);
+            Assert.AreEqual(2, output);
+        }
 
 
     }

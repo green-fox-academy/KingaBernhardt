@@ -25,7 +25,7 @@ namespace Poker_Dojo
                 {
                     return 11;
                 }
-                else if (input.Equals("D"))
+                else if (input.Equals("Q"))
                 {
                     return 12;
                 }

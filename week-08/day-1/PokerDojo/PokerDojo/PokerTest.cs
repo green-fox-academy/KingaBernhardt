@@ -34,5 +34,12 @@ namespace PokerDojo
             Assert.AreEqual(11, output);
         }
 
+        [TestCase("D")]
+        public void TestIfCardIsTwelve(string input)
+        {
+            int output = poker.GetValue(input);
+            Assert.AreEqual(12, output);
+        }
+
     }
 }

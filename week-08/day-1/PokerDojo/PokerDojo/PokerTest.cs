@@ -27,7 +27,7 @@ namespace PokerDojo
         }
 
         [TestCase]
-        public void TestIfCardIsEleven()
+        public void TestIfCardIsJack()
         {
             string input = "J";
             int output = poker.GetValue(input);
@@ -35,21 +35,21 @@ namespace PokerDojo
         }
 
         [TestCase("Q")]
-        public void TestIfCardIsTwelve(string input)
+        public void TestIfCardIsQueen(string input)
         {
             int output = poker.GetValue(input);
             Assert.AreEqual(12, output);
         }
 
         [TestCase("K")]
-        public void TestIfCardIsThirty(string input)
+        public void TestIfCardIsKing(string input)
         {
             int output = poker.GetValue(input);
             Assert.AreEqual(13, output);
         }
 
         [TestCase("A")]
-        public void TestIfCardIsFourty(string input)
+        public void TestIfCardIsAce(string input)
         {
             int output = poker.GetValue(input);
             Assert.AreEqual(14, output);

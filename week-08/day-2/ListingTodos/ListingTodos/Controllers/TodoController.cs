@@ -33,9 +33,8 @@ namespace ListingTodos.Controllers
         [HttpPost]
         public IActionResult AddPokemon(Todo todo)
         {
-            todoRepository.ToDos.Add(todo);
-            .SaveChanges();
-            return Redirect("Index");
+            todoRepository.AddTodo(todo);
+            return Redirect("List");
         }
     }
 }

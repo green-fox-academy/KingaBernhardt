@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Todo>
 
 <head>
     <title>My Todo List</title>
@@ -11,7 +11,16 @@
         <li>Finish workshop</li>
         <li>Buy charger</li>
         <li>Watch the videos</li>
+        @foreach (var todo in Model)
+        {
+         <li>@todo.Title</li>
+        }
     </ul>
+    <form action="/Todo/AddPokemon" method="post">
+        <label>Title:</label>
+        <input type="text" name="Title" value="Todo name" />
+        <button type="submit">Give todo!</button>
+    </form>
 </body>
 
 

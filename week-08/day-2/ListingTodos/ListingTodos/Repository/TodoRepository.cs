@@ -19,5 +19,11 @@ namespace ListingTodos.Repository
         {
             return todoContext.ToDos.ToList();
         }
+
+        public void AddTodo(Todo todo)
+        {
+            todoContext.ToDos.Add(todo);
+            todoContext.SaveChanges();
+        }
     }
 }

@@ -11,14 +11,14 @@ namespace ListingTodos.Controllers
     {
         public IActionResult Index()
         {
-            return RedirectToAction("List");
+            return View();
         }
 
         [HttpGet("/")]
         [HttpGet("/List")]
         public IActionResult List()
         {
-            return Content("This is your first list");
+            return View("List");
         }
     }
 }

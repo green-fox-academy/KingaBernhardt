@@ -17,24 +17,18 @@ namespace ListingTodos.Controllers
         {
             this.todoRepository = todoRepository;
         }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpGet("/")]
-        [HttpGet("/List")]
-        public IActionResult List(List<Todo> todos)
+        
+        [Route("/list")]
+        public IActionResult List()
         {
             return View(todoRepository.GetTodoList());
         }
 
-        [HttpPost]
-        public IActionResult AddPokemon(Todo todo)
+        [HttpPost("/AddTodo")]
+        public IActionResult AddTodo(Todo todo)
         {
             todoRepository.AddTodo(todo);
-            return Redirect("List");
+            return RedirectToAction("List");
         }
     }
 }

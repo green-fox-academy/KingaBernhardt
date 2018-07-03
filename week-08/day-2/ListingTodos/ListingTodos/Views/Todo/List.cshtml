@@ -13,13 +13,12 @@
         <li>Watch the videos</li>
         @foreach (var todo in Model)
         {
-         <li>@todo.Title</li>
+            <li>@todo.Title</li>
         }
     </ul>
-    <form action="/Todo/AddPokemon" method="post">
-        <label>Title:</label>
-        <input type="text" name="Title" value="Todo name" />
-        <button type="submit">Give todo!</button>
+    <form action="/AddTodo" method="post">
+        <input type="text" name="Title" value="" />
+        <button type="submit">Add todo</button>
     </form>
 </body>
 

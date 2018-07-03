@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ListingTodos.Controllers
 {
-    [Route("/todo")]
+    
     public class TodoController : Controller
     {
         private TodoRepository todoRepository;
@@ -22,6 +22,12 @@ namespace ListingTodos.Controllers
         public IActionResult List()
         {
             return View(todoRepository.GetTodoList());
+        }
+
+        [HttpGet("/AddTodo")]
+        public IActionResult AddTodo()
+        {
+            return View("Add");
         }
 
         [HttpPost("/AddTodo")]

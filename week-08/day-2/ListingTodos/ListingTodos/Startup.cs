@@ -27,6 +27,7 @@ namespace ListingTodos
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseMvcWithDefaultRoute();
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();

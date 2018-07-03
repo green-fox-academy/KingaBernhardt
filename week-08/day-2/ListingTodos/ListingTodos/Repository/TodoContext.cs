@@ -10,5 +10,9 @@ namespace ListingTodos.Repository
     public class TodoContext : DbContext
     {
         public DbSet<Todo> ToDos { get; set; }
+        public TodoContext(DbContextOptions<TodoContext> options) : base(options)
+        {
+
+        }
     }
 }

@@ -27,14 +27,14 @@ namespace ListingTodos.Controllers
         [HttpGet("/List")]
         public IActionResult List(List<Todo> todos)
         {
-            return View(todoRepository.ToDo.ToList());
+            return View(todoRepository.GetTodoList());
         }
 
         [HttpPost]
         public IActionResult AddPokemon(Todo todo)
         {
             todoRepository.ToDos.Add(todo);
-            todoRepository.SaveChanges();
+            .SaveChanges();
             return Redirect("Index");
         }
     }

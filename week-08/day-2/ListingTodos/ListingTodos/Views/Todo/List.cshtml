@@ -6,20 +6,15 @@
 
 <body>
     <h2>Todos for today</h2>
+    <a asp-controller="todo" asp-action="AddTodo">Click to add new Todo</a>
     <ul>
-        <li>Start the day</li>
-        <li>Finish workshop</li>
-        <li>Buy charger</li>
-        <li>Watch the videos</li>
         @foreach (var todo in Model)
         {
             <li>@todo.Title</li>
+            <li>@todo.IsDone</li>
+            <li>@todo.IsUrgent</li>
         }
     </ul>
-    <form action="/AddTodo" method="post">
-        <input type="text" name="Title" value="" />
-        <button type="submit">Add todo</button>
-    </form>
 </body>
 
 

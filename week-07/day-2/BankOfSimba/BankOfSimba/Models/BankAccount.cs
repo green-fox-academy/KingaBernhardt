@@ -20,7 +20,6 @@ namespace BankOfSimba.Models
             Currency = "Zebra";
         }
 
-
         public void AddMoney(int id)
         {
             if (IsKing)
@@ -31,6 +30,13 @@ namespace BankOfSimba.Models
             {
                 Balance += 10;
             }
+        }
+
+        public int RandomAccount()
+        {
+            Random rnd = new Random();
+            int rndAccount = rnd.Next(0, Id);
+            return rndAccount;
         }
 
         

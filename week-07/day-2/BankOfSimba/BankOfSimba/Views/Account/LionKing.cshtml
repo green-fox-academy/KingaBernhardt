@@ -45,12 +45,15 @@
             <div class="progress-bar progress-bar-info" style="width: 17%">Personal Help</div>
             <div class="progress-bar progress-bar-danger" style="width: 3%">Fees</div>
         </div>
-    <form action="/AddCurrency" method="post" class="navbar-form navbar-left" width="150" >
-        <div class="form-group">
-            <input type="number" class="form-control" placeholder="Account Id">
-        </div>
-        <button type="submit" class="btn btn-default">Raise Balance</button>
-    </form>
+        <form action="/AddCurrency" method="post">
+            <select name="id">
+                @for (var i = 0; i < Model.Count; i++)
+                {
+                    <option type="number" value="@i">@i</option>
+                }
+            </select>
+            <button type="submit" value="submit">Submit</button>
+        </form>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     </div>

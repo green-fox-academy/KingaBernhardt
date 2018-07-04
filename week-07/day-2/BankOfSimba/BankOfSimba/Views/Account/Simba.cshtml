@@ -1,13 +1,17 @@
 ﻿@model BankAccount
-@{
-    ViewData["Title"] = "Simba";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
-<h2>Bank Of Simba</h2>
-<p>@Model.Name</p>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <h2>Bank Of Simba</h2>
+    <p>@Model.Name</p>
 
-<p>@String.Format("{0:N2}", Model.Balance) @Model.Currency</p>
+    <p>@String.Format("{0:N2}", Model.Balance) @Model.Currency</p>
 
-<p>@Model.AnimalType</p>
+    <p>@Model.AnimalType</p>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
 

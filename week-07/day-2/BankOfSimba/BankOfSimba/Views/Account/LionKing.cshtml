@@ -1,52 +1,54 @@
 ﻿@model List<BankAccount>
-@{
-    ViewData["Title"] = "LionKing";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
-<h2>LionKing</h2>
-
-<table style="border: 1px solid black">
-    <thead style="border: 1px solid black">
-        <tr><th colspan="6"; text-align="center">Bank Of Animals</th></tr>
-    </thead>
-    <tbody style="border: 1px solid black"; padding="20px">
-        <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Balance</td>
-            <td>Type</td>
-            <td>King</td>
-            <td>GoodOrBad</td>
-        <tr>
-            @for (int i = 0; i < Model.Count; i++)
-            {
-            <tr style="border: 1px solid black"; padding="20px">
-                <td style="border: 1px solid black"; padding="20px">@i</td>
-                <td style="border: 1px solid black"; padding="20px">@Model[i].Name</td>
-                <td style="border: 1px solid black"; padding="20px">@Model[i].Balance</td>
-                <td style="border: 1px solid black"; padding="20px">@Model[i].AnimalType</td>
-                <td style="border: 1px solid black">@Model[i].IsKing</td>
-                <td style="border: 1px solid black", padding="20px">
-                @if (Model[i].IsGood)
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+  <h2 style="font-family:Broadway">LionKing - bank for the Biggests</h2>
+  <div class="container">
+     <table class="table table-striped table-hover ">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Balance</th>
+                    <th>Type</th>
+                    <th>King</th>
+                    <th>Good/Bad</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
                 {
-                    <p>Goodguy</p>
+                <tr>
+                    <td>@i</td>
+                    <td>@Model[i].Name</td>
+                    <td>@Model[i].Balance</td>
+                    <td>@Model[i].AnimalType</td>
+                    <td>@Model[i].IsKing</td>
+                    @if (Model[i].IsGood)
+                    {
+                    <td>Bad Guy</td>
+                    }
+                    else
+                    {
+                    <td>Good Guy</td>
+                    }
+                 </tr>
                 }
-                else
-                {
-                    <p>Badguy</p>
-                }
-                </td>
-            </tr>
-            } 
-        </tbody>
-</table>
-<form action="/AddCurrency" method="post">
-    <select name="id">
-        @for (var i = 0; i < Model.Count; i++)
-        {
-            <option type="number" value="@i">@i</option>
-        }
-    </select>
-    <button type="submit" value="submit">Submit</button>
-</form>
+            </tbody>
+     </table>
+     <form action="/AddCurrency" method="post">
+        <select name="id">
+             @for (var i = 0; i < Model.Count; i++)
+              {
+              <option type="number" value="@i">@i</option>
+                        }
+              </select>
+              <button class="btn btn-success" type="submit" value="submit">Submit</button>
+              </form>
+              <script src="~/lib/jquery/dist/jquery.min.js"></script>
+              <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+   </div>
+</body>

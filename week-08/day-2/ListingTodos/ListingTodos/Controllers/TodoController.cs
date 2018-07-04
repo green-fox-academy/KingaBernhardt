@@ -37,7 +37,7 @@ namespace ListingTodos.Controllers
             return RedirectToAction("List");
         }
 
-
+        [HttpGet("/{id}/delete")]
         public IActionResult Delete(int id)
         {
             todoRepository.RemoveTodo(id);

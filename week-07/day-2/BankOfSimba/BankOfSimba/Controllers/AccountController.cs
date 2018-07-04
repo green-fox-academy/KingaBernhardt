@@ -44,12 +44,6 @@ namespace BankOfSimba.Controllers
             return RedirectToAction("LoggedIn");
         }
 
-        [HttpGet("LoggedIn")]
-        public IActionResult LoggedIn()
-        {
-            return View("Simba");
-        }
-
         public IActionResult LionKing()
         {
             return View(bankAccounts); 

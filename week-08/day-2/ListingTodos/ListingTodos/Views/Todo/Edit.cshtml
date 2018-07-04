@@ -1,38 +1,37 @@
 ﻿@model Todo
-<form action="/List" method="post" class="form-horizontal">
+<form action="/@Model.Id/edit" method="post" class="form-horizontal">
     <fieldset>
         <legend>Edit Todo</legend>
         <div class="form-group">
             <label for="title" class="col-lg-2 control-label">Todo description</label>
             <div class="col-lg-10">
-                <input type="text" class="form-control" id="title" placeholder="Title">
+                <input type="text" class="form-control" name="Title" placeholder="Title" value=@Model.Title>
             </div>
         </div>
-        <div class="checkbox">
-            <label>Done</label>
-            @if (Model.IsDone)
-            {
-                <input type="checkbox" name="IsDone" value="TRUE" checked />
-                <input type="hidden" name="IsDone" value="FALSE" />
-            }
-            else
-            {
-                <input type="checkbox" name="IsDone" value="TRUE" />
-                <input type="hidden" name="IsDone" value="FALSE" />
-            }
-            <label>Urgent</label>
-            @if (Model.IsUrgent)
-            {
-                <input type="checkbox" name="IsUrgent" value="TRUE" checked />
-                <input type="hidden" name="IsUrgent" value="FALSE" />
-            }
-            else
-            {
-                <input type="checkbox" name="IsUrgent" value="TRUE" />
-                <input type="hidden" name="IsUrgent" value="FALSE" />
-            }
-        </div>
-
+        <label>Urgent</label>
+        @if (Model.IsUrgent)
+        {
+            <input type="checkbox" name="IsUrgent" value="TRUE" checked />
+            <input type="hidden" name="IsUrgent" value="FALSE" />
+        }
+        else
+        {
+            <input type="checkbox" name="IsUrgent" value="TRUE" />
+            <input type="hidden" name="IsUrgent" value="FALSE" />
+        }
+        <br/>
+        <label>Done</label>
+        @if (Model.IsDone)
+        {
+            <input type="checkbox" name="IsDone" value="TRUE" checked />
+            <input type="hidden" name="IsDone" value="FALSE" />
+        }
+        else
+        {
+            <input type="checkbox" name="IsDone" value="TRUE" />
+            <input type="hidden" name="IsDone" value="FALSE" />
+        }
+        <input type="hidden" name="Id" value="@Model.Id" />
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
                 <button type="reset" class="btn btn-default">Cancel</button>

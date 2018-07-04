@@ -44,6 +44,12 @@ namespace ListingTodos.Controllers
             return RedirectToAction("List");
         }
 
+        [HttpGet("/{id}/edit")]
+        public IActionResult Edit(long id)
+        {
+            return View("Edit", todoRepository.GetId(id));
+        }
+
         [HttpPost("/{id}/edit")]
         public IActionResult Edit(Todo todo)
         {
@@ -51,10 +57,5 @@ namespace ListingTodos.Controllers
             return RedirectToAction("List");
         }
 
-        [HttpGet("/{id}/edit")]
-        public IActionResult Edit(int id)
-        {
-            return View("Edit");
-        }
     }
 }

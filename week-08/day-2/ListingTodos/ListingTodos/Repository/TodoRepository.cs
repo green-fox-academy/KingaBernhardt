@@ -40,7 +40,7 @@ namespace ListingTodos.Repository
 
         public void Edit(Todo todo)
         {
-            todoContext.Update(todo);
+            todoContext.ToDos.Update(todo);
             todoContext.SaveChanges();
         }
     }

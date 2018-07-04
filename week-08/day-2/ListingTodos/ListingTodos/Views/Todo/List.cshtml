@@ -5,8 +5,8 @@
 </head>
 
 <body>
-    <h2>Todos for today</h2>
-    <a asp-controller="todo" asp-action="AddTodo">Click to add new Todo</a>
+    <strong><h2>Todos for today</h2></strong>
+    <a asp-controller="todo" asp-action="AddTodo" style="font-size:larger">Click to add new Todo</a>
     <table class="table table-striped table-hover ">
         <thead>
             <tr>
@@ -24,7 +24,7 @@
                 <tr>
                     <td>@todo.Id</td>
                     <td>@todo.Title</td>
-                    @if (!todo.IsDone)
+                    @if (!todo.IsUrgent)
                     {
                         <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
                     }
@@ -32,7 +32,7 @@
                     {
                         <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
                     }
-                    @if (!todo.IsUrgent)
+                    @if (!todo.IsDone)
                     {
                         <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
 

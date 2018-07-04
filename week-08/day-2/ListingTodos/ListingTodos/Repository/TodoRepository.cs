@@ -25,5 +25,16 @@ namespace ListingTodos.Repository
             todoContext.ToDos.Add(todo);
             todoContext.SaveChanges();
         }
+
+        public void RemoveTodo(Todo todo)
+        {
+            todoContext.ToDos.Remove(todo);
+            todoContext.SaveChanges();
+        }
+
+        public void Edit(Todo todo)
+        {
+
+        }
     }
 }

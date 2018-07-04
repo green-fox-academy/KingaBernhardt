@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ListingTodos.Controllers
 {
-    
+
     public class TodoController : Controller
     {
         private TodoRepository todoRepository;
@@ -17,7 +17,7 @@ namespace ListingTodos.Controllers
         {
             this.todoRepository = todoRepository;
         }
-        
+
         [Route("/list")]
         public IActionResult List()
         {
@@ -42,6 +42,19 @@ namespace ListingTodos.Controllers
         {
             todoRepository.RemoveTodo(id);
             return RedirectToAction("List");
+        }
+
+        [HttpPost("/{id}/edit")]
+        public IActionResult Edit(Todo todo)
+        {
+            todoRepository.Edit(todo);
+            return RedirectToAction("List");
+        }
+
+        [HttpGet("/{id}/edit")]
+        public IActionResult Edit(int id)
+        {
+            return View("Edit");
         }
     }
 }

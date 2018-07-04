@@ -26,6 +26,11 @@ namespace ListingTodos.Repository
             todoContext.SaveChanges();
         }
 
+        public Todo GetId(long id)
+        {
+            return todoContext.ToDos.ToList().FirstOrDefault(x => x.Id == id);
+        }
+
         public void RemoveTodo(int id)
         {
             var removableTodo = todoContext.ToDos.ToList().FirstOrDefault(x => x.Id == id);
@@ -36,6 +41,7 @@ namespace ListingTodos.Repository
         public void Edit(Todo todo)
         {
             todoContext.Update(todo);
+            todoContext.SaveChanges();
         }
     }
 }

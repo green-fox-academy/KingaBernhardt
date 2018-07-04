@@ -1,7 +1,10 @@
 ﻿@model Todo
+
 <form action="/@Model.Id/edit" method="post" class="form-horizontal">
+    <br />
     <fieldset>
-        <legend>Edit Todo</legend>
+
+        <legend><strong>Edit Todo</strong></legend>
         <div class="form-group">
             <label for="title" class="col-lg-2 control-label">Todo description</label>
             <div class="col-lg-10">
@@ -19,7 +22,7 @@
             <input type="checkbox" name="IsUrgent" value="TRUE" />
             <input type="hidden" name="IsUrgent" value="FALSE" />
         }
-        <br/>
+        <br />
         <label>Done</label>
         @if (Model.IsDone)
         {

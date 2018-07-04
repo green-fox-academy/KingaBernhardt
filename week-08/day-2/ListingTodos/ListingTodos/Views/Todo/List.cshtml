@@ -12,19 +12,40 @@
             <tr>
                 <th>Id</th>
                 <th>Content</th>
-                <th>IsUrgent</th>
-                <th>IsDone</th>
+                <th>Urgent</th>
+                <th>Done</th>
+                <th>Delete</th>
+                <th>Edit</th>
             </tr>
         </thead>
-        @foreach (var todo in Model)
-        {
-            <tr>
+        <tbody>
+            @foreach (var todo in Model)
+            {
+                <tr>
                     <td>@todo.Id</td>
                     <td>@todo.Title</td>
-                    <td>@todo.IsDone</td>
-                    <td>@todo.IsUrgent</td>
-            </tr>
-        }
+                    @if (!todo.IsDone)
+                    {
+                        <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                    }
+                    else
+                    {
+                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                    }
+                    @if (!todo.IsUrgent)
+                    {
+                        <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+
+                    }
+                    else
+                    {
+                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                    }
+                    <td>delete</td>
+                    <td>edit</td>
+                </tr>
+            }
+        </tbody>
     </table>
 </body>
 

@@ -36,5 +36,12 @@ namespace ListingTodos.Controllers
             todoRepository.AddTodo(todo);
             return RedirectToAction("List");
         }
+
+
+        public IActionResult Delete(int id)
+        {
+            todoRepository.RemoveTodo(id);
+            return RedirectToAction("List");
+        }
     }
 }

@@ -26,15 +26,16 @@ namespace ListingTodos.Repository
             todoContext.SaveChanges();
         }
 
-        public void RemoveTodo(Todo todo)
+        public void RemoveTodo(int id)
         {
-            todoContext.ToDos.Remove(todo);
+            var removableTodo = todoContext.ToDos.ToList().FirstOrDefault(x => x.Id == id);
+            todoContext.ToDos.Remove(removableTodo);
             todoContext.SaveChanges();
         }
 
         public void Edit(Todo todo)
         {
-
+            todoContext.Update(todo);
         }
     }
 }

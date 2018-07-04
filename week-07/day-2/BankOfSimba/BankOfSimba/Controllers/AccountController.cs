@@ -16,6 +16,7 @@ namespace BankOfSimba.Controllers
             new BankAccount() { Name = "Timon", Balance = 359, AnimalType = "meercat", IsKing = false, IsGood = true },
             new BankAccount() { Name = "Nala", Balance = 200, AnimalType = "lion", IsKing = false, IsGood = true },
         };
+
         public IActionResult Index()
         {
             return View();
@@ -29,8 +30,19 @@ namespace BankOfSimba.Controllers
                 Balance = 2000,
                 AnimalType = "lion"
             };
-
             return View(bankAccount);
+        }
+
+        [HttpPost]
+        public IActionResult GetLogInPage()
+        {
+            return RedirectToAction("GetLogInPage");
+        }
+
+        [HttpGet("GetLogInPage")]
+        public IActionResult LoggedIn()
+        {
+            return View(bankAccounts);
         }
 
         public IActionResult LionKing()

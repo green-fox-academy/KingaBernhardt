@@ -15,20 +15,18 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>CreationDate</th>
                 <th>Delete</th>
                 <th>Edit</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var todo in Model)
+            @foreach (var assign in Model)
             {
                 <tr>
-                    <td>@todo.Id</td>
-                    <td>@todo.Name</td>
-                    <td>@todo.CreationDate</td>
-                    <td><a href="@todo.Id/deleteAssigne" class="btn btn-danger">Delete</a></td>
-                    <td><a href="@todo.Id/edit/Assigne" class="btn btn-success">Edit</a></td>
+                    <td>@assign.Id</td>
+                    <td>@assign.Name</td>
+                    <td><a href="@assign.Id/deleteAssigne" class="btn btn-danger">Delete</a></td>
+                    <td><a href="@assign.Id/edit/Assigne" class="btn btn-success">Edit</a></td>
                 </tr>
             }
         </tbody>

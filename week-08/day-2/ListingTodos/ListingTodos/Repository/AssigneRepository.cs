@@ -16,7 +16,7 @@ namespace ListingTodos.Repository
 
         public void Add(Assigne assigne)
         {
-            
+            todoCon.Assignes.Add(assigne);
         }
 
         public void Edit(Assigne assigne)
@@ -42,7 +42,9 @@ namespace ListingTodos.Repository
 
         public void Remove(int id)
         {
-            
+            var removableAssigne = todoCon.Assignes.ToList().FirstOrDefault(x => x.Id == id);
+            todoCon.Assignes.Remove(removableAssigne);
+            todoCon.SaveChanges();
         }
     }
 }

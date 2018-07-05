@@ -60,7 +60,7 @@ namespace ListingTodos.Controllers
         [HttpPost("/GetTodo")]
         public IActionResult GetTodo(string Title)
         {
-            return View("List", todoRepository.GetTodo(Title));
+            return View("List", todoRepository.GetSearched(Title));
         }
     }
 }

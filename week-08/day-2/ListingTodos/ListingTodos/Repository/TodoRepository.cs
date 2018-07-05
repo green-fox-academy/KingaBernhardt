@@ -44,7 +44,6 @@ namespace ListingTodos.Repository
             todoContext.SaveChanges();
         }
 
-
         public List<Todo> GetTodo(string title)
         {
             return todoContext.ToDos.Where(t => t.Title.ToLower().Contains(title.ToLower())).ToList();

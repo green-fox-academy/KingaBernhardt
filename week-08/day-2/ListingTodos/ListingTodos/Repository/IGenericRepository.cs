@@ -5,11 +5,18 @@ using System.Threading.Tasks;
 
 namespace ListingTodos.Repository
 {
-    interface IGenericRepository<Type>
+    public interface IGenericRepository<Type>
     {
         List<Type> GetList();
 
-        public void 
+        void Add(Type element);
 
+        Type GetId(long id);
+
+        void Remove(int id);
+
+        void Edit(Type element);
+
+        List<Type> GetSearched(string title);
     }
 }

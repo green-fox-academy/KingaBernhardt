@@ -33,14 +33,14 @@ namespace ListingTodos.Controllers
         [HttpPost("/AddTodo")]
         public IActionResult AddTodo(Todo todo)
         {
-            todoRepository.AddTodo(todo);
+            todoRepository.Add(todo);
             return RedirectToAction("List");
         }
 
         [HttpGet("/{id}/delete")]
         public IActionResult Delete(int id)
         {
-            todoRepository.RemoveTodo(id);
+            todoRepository.Remove(id);
             return RedirectToAction("List");
         }
 

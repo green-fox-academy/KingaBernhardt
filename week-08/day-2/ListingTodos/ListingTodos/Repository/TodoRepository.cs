@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ListingTodos.Repository
 {
-    public class TodoRepository
+    public class TodoRepository : IGenericRepository<Todo>
     {
         private TodoContext todoContext;
 
@@ -20,7 +20,7 @@ namespace ListingTodos.Repository
             return todoContext.ToDos.ToList();
         }
 
-        public void AddTodo(Todo todo)
+        public void Add(Todo todo)
         {
             todoContext.ToDos.Add(todo);
             todoContext.SaveChanges();
@@ -31,7 +31,7 @@ namespace ListingTodos.Repository
             return todoContext.ToDos.ToList().FirstOrDefault(x => x.Id == id);
         }
 
-        public void RemoveTodo(int id)
+        public void Remove(int id)
         {
             var removableTodo = todoContext.ToDos.ToList().FirstOrDefault(x => x.Id == id);
             todoContext.ToDos.Remove(removableTodo);
@@ -44,7 +44,7 @@ namespace ListingTodos.Repository
             todoContext.SaveChanges();
         }
 
-        public List<Todo> GetTodo(string title)
+        public List<Todo> GetSearched(string title)
         {
             return todoContext.ToDos.Where(t => t.Title.ToLower().Contains(title.ToLower())).ToList();
         }

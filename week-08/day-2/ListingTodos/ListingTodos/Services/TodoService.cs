@@ -11,13 +11,9 @@ namespace ListingTodos.Services
     {
         private TodoRepository todoRepository;
         private AssigneRepository assigneRepository;
-        public TodoService(TodoRepository todoRepository)
+        public TodoService(TodoRepository todoRepository,AssigneRepository assigneRepository)
         {
             this.todoRepository = todoRepository;
-        }
-
-        public TodoService(AssigneRepository assigneRepository)
-        {
             this.assigneRepository = assigneRepository;
         }
 

@@ -13,7 +13,7 @@ namespace ListingTodos.Controllers
     public class TodoController : Controller
     {
         private ITodoService todoService;
-        public TodoController(TodoService todoService)
+        public TodoController(ITodoService todoService)
         {
             this.todoService = todoService;
         }

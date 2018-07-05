@@ -40,20 +40,20 @@ namespace ListingTodos.Controllers
             return RedirectToAction("ListAssigne");
         }
 
-        [HttpGet("/{id}/delete")]
+        [HttpGet("/{id}/deleteAssigne")]
         public IActionResult Delete(int id)
         {
             todoService.RemoveAssigne(id);
             return RedirectToAction("ListAssigne");
         }
 
-        [HttpGet("/{id}/edit")]
+        [HttpGet("/{id}/editAssigne")]
         public IActionResult Edit(long id)
         {
             return View("Edit", todoService.GetAssigneId(id));
         }
 
-        [HttpPost("/{id}/edit")]
+        [HttpPost("/{id}/editAssigne")]
         public IActionResult Edit(Assigne assigne)
         {
             todoService.EditAssigne(assigne);

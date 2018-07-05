@@ -8,9 +8,19 @@ namespace ListingTodos.Controllers
 {
     public class AssigneController : Controller
     {
-        public IActionResult Index()
+        public IActionResult ListAssigne()
         {
-            return View();
+            return 
         }
+
+        public IActionResult GetAssigne(string Name)
+        {
+            
+            return View("Assigne");
+        }
+
+
+
+
     }
 }

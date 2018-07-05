@@ -15,7 +15,7 @@ namespace ListingTodos.Repository
             this.todoContext = todoContext;
         }
 
-        public List<Todo> GetTodoList()
+        public List<Todo> GetList()
         {
             return todoContext.ToDos.ToList();
         }

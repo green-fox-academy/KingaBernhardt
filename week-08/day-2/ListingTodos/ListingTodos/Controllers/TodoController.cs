@@ -21,7 +21,7 @@ namespace ListingTodos.Controllers
         [Route("/List")]
         public IActionResult List()
         {
-            return View(todoRepository.GetTodoList());
+            return View(todoRepository.GetList());
         }
 
         [HttpGet("/AddTodo")]

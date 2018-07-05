@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ListingTodos.Models;
 using ListingTodos.Repository;
+using ListingTodos.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ListingTodos.Controllers
@@ -11,17 +12,16 @@ namespace ListingTodos.Controllers
 
     public class TodoController : Controller
     {
-        private TodoRepository todoRepository;
-
-        public TodoController(TodoRepository todoRepository)
+        private ITodoService todoService;
+        public TodoController(TodoService todoService)
         {
-            this.todoRepository = todoRepository;
+            this.todoService = todoService;
         }
 
         [Route("/List")]
         public IActionResult List()
         {
-            return View(todoRepository.GetList());
+            return View(todoService.GetTodoList());
         }
 
         [HttpGet("/AddTodo")]
@@ -33,34 +33,34 @@ namespace ListingTodos.Controllers
         [HttpPost("/AddTodo")]
         public IActionResult AddTodo(Todo todo)
         {
-            todoRepository.Add(todo);
+            todoService.AddTodo(todo);
             return RedirectToAction("List");
         }
 
         [HttpGet("/{id}/delete")]
         public IActionResult Delete(int id)
         {
-            todoRepository.Remove(id);
+            todoService.RemoveTodo(id);
             return RedirectToAction("List");
         }
 
         [HttpGet("/{id}/edit")]
         public IActionResult Edit(long id)
         {
-            return View("Edit", todoRepository.GetId(id));
+            return View("Edit", todoService.GetTodoId(id));
         }
 
         [HttpPost("/{id}/edit")]
         public IActionResult Edit(Todo todo)
         {
-            todoRepository.Edit(todo);
+            todoService.EditTodo(todo);
             return RedirectToAction("List");
         }
 
         [HttpPost("/GetTodo")]
         public IActionResult GetTodo(string Title)
         {
-            return View("List", todoRepository.GetSearched(Title));
+            return View("List", todoService.GetSearchedTodo(Title));
         }
     }
 }

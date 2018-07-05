@@ -16,7 +16,7 @@ namespace ListingTodos.Controllers
         {
             this.todoService = todoService;
         }
-
+        [HttpGet("/ListAssigne")]
         public IActionResult ListAssigne()
         {
             return View(todoService.GetAssigneList());
@@ -24,7 +24,7 @@ namespace ListingTodos.Controllers
 
         public IActionResult GetAssigneList(string Name)
         {
-            return View("Assigne");
+            return View("AssigneList");
         }
 
         [HttpGet("/AddAssigne")]

@@ -15,6 +15,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Todos</th>
                 <th>Delete</th>
                 <th>Edit</th>
             </tr>
@@ -22,12 +23,16 @@
         <tbody>
             @foreach (var assign in Model)
             {
-                <tr>
-                    <td>@assign.Id</td>
-                    <td>@assign.Name</td>
-                    <td><a href="@assign.Id/deleteAssigne" class="btn btn-danger">Delete</a></td>
-                    <td><a href="@assign.Id/edit/Assigne" class="btn btn-success">Edit</a></td>
-                </tr>
+            <tr>
+                <td>@assign.Id</td>
+                <td>@assign.Name</td>
+                @foreach (var item in assign.Todos)
+                {
+                    <td>@item</td>
+                }
+                <td><a href="@assign.Id/deleteAssigne" class="btn btn-danger">Delete</a></td>
+                <td><a href="@assign.Id/edit/Assigne" class="btn btn-success">Edit</a></td>
+            </tr>
             }
         </tbody>
     </table>

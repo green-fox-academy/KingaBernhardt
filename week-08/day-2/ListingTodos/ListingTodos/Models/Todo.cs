@@ -12,7 +12,7 @@ namespace ListingTodos.Models
         public DateTime CreationDate { get; set; }
         public bool IsUrgent { get; set; }
         public bool IsDone { get; set; }
-        public Assigne assigne { get; set; }
+        public Assigne Assigne { get; set; }
 
         public Todo()
         {

@@ -18,7 +18,7 @@ namespace ListingTodos.Controllers
             this.todoRepository = todoRepository;
         }
 
-        [Route("/list")]
+        [Route("/List")]
         public IActionResult List()
         {
             return View(todoRepository.GetTodoList());
@@ -57,5 +57,10 @@ namespace ListingTodos.Controllers
             return RedirectToAction("List");
         }
 
+        [HttpPost("/GetTodo")]
+        public IActionResult GetTodo(string Title)
+        {
+            return View("List", todoRepository.GetTodo(Title));
+        }
     }
 }

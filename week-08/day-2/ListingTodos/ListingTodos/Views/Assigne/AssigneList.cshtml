@@ -8,14 +8,14 @@
         <input class="form-control mr-sm-2" type="text" name="Name" placeholder="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
     </form>
-    <a asp-controller="todo" asp-action="AddTodo" style="font-size:25px">Click to add new Todo</a>
+    <a asp-controller="Assigne" asp-action="AddAssigne" style="font-size:25px">Click to be an assigne</a>
     <table class="table table-striped table-hover ">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Content</th>
-                <th>Urgent</th>
-                <th>Done</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>CreationDate</th>
                 <th>Delete</th>
                 <th>Edit</th>
             </tr>
@@ -25,24 +25,8 @@
             {
                 <tr>
                     <td>@todo.Id</td>
-                    <td>@todo.Title</td>
-                    @if (!todo.IsUrgent)
-                    {
-                        <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-                    }
-                    else
-                    {
-                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                    }
-                    @if (!todo.IsDone)
-                    {
-                        <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-
-                    }
-                    else
-                    {
-                        <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                    }
+                    <td>@todo.Name</td>
+                    <td>@todo.CreationDate</td>
                     <td><a href="@todo.Id/delete" class="btn btn-danger">Delete</a></td>
                     <td><a href="@todo.Id/edit" class="btn btn-success">Edit</a></td>
                 </tr>

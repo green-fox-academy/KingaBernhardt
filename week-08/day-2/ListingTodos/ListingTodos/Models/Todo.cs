@@ -11,7 +11,6 @@ namespace ListingTodos.Models
         public string Title { get; set; }
         public bool IsUrgent { get; set; }
         public bool IsDone { get; set; }
-        public int AssigneId { get; set; }
         public Assigne assigne { get; set; }
 
         public Todo()

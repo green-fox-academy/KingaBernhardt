@@ -2,27 +2,68 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ListingTodos.Models;
 using ListingTodos.Repository;
+using ListingTodos.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ListingTodos.Controllers
 {
     public class AssigneController : Controller
     {
-        private AssigneRepository assigneRepo;
-        public AssigneController(AssigneRepository assigneRepo)
+        private ITodoService todoService;
+        public AssigneController(ITodoService todoService)
         {
-            this.assigneRepo = assigneRepo;
+            this.todoService = todoService;
         }
 
         public IActionResult ListAssigne()
         {
-            return View(assigneRepo.GetList());
+            return View(todoService.GetAssigneList());
         }
 
-        public IActionResult GetAssigne(string Name)
+        public IActionResult GetAssigneList(string Name)
         {
             return View("Assigne");
+        }
+
+        [HttpGet("/AddAssigne")]
+        public IActionResult AddAssigne()
+        {
+            return View("Add");
+        }
+
+        [HttpPost("/AddAssigne")]
+        public IActionResult AddAssigne(Assigne assigne)
+        {
+            todoService.AddAssigne(assigne);
+            return RedirectToAction("ListAssigne");
+        }
+
+        [HttpGet("/{id}/delete")]
+        public IActionResult Delete(int id)
+        {
+            todoService.RemoveAssigne(id);
+            return RedirectToAction("ListAssigne");
+        }
+
+        [HttpGet("/{id}/edit")]
+        public IActionResult Edit(long id)
+        {
+            return View("Edit", todoService.GetAssigneId(id));
+        }
+
+        [HttpPost("/{id}/edit")]
+        public IActionResult Edit(Assigne assigne)
+        {
+            todoService.EditAssigne(assigne);
+            return RedirectToAction("ListAssigne");
+        }
+
+        [HttpPost("/GetAssigne")]
+        public IActionResult GetAssigne(string Name)
+        {
+            return View("AssigneList", todoService.GetSearchedAssigne(Name));
         }
 
 

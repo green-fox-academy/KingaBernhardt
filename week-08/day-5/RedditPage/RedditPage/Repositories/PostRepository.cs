@@ -42,5 +42,21 @@ namespace RedditPage.Repositories
             postContext.Posts.Update(post);
             postContext.SaveChanges();
         }
+
+        public void IncreaseVote(int id)
+        {
+            var votedElement = postContext.Posts.FirstOrDefault(p => p.Id == id);
+            votedElement.Votes++;
+            postContext.Update(votedElement);
+            postContext.SaveChanges();
+        }
+
+        public void DecreaseVote(int id)
+        {
+            var votedElement = postContext.Posts.FirstOrDefault(p => p.Id == id);
+            votedElement.Votes--;
+            postContext.Update(votedElement);
+            postContext.SaveChanges();
+        }
     }
 }

@@ -13,5 +13,7 @@ namespace RedditPage.Services
         void CreatPost(Post post);
         void DeletePost(int id);
         void UpdatePost(Post post);
+        void IncreaseVote(int id);
+        void DecreaseVote(int id);
     }
 }

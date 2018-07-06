@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RedditPage.Models;
 using RedditPage.Repositories;
+using RedditPage.Services;
 
 namespace RedditPage
 {
@@ -26,7 +27,9 @@ namespace RedditPage
         {
             string connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=Post;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             services.AddMvc();
-            //services.AddTransient<IPostRepository>();
+            services.AddTransient<PostRepository>();
+            services.AddTransient<IService, PostService>();
+            services.AddTransient<DbContext, PostDbContext>();
             services.AddDbContext<PostDbContext>(options => options.UseSqlServer(connectionString));
         }
 

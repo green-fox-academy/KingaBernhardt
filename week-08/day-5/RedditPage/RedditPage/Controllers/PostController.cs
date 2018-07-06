@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RedditPage.Controllers
 {
+    [Route("")]
     public class PostController : Controller
     {
         public IActionResult ListPost()

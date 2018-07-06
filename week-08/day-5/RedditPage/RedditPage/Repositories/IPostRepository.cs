@@ -9,11 +9,10 @@ namespace RedditPage.Repositories
     interface IPostRepository
     {
         void CreatePost();
-        Post ReadPost();
-        List<Post> ReadPosts();
-        void AddPost();
-        void DeletePost();
-        void Update();
+        List<Post> ReadPost();
+        List<Post> SearchPost(string title);
+        void DeletePost(int id);
+        void Update(Post post);
 
     }
 }

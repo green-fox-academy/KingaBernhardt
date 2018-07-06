@@ -14,34 +14,33 @@ namespace RedditPage.Repositories
             this.postContext = postContext;
         }
 
-        public void AddPost()
+        public void CreatePost(Post post)
         {
-            throw new NotImplementedException();
+            postContext.Posts.Add(post);
         }
 
-        public void CreatePost()
+        public void DeletePost(int id)
         {
-            throw new NotImplementedException();
+            var removablePost = postContext.Posts.ToList().FirstOrDefault(p => p.Id == id);
+            postContext.Remove(removablePost);
+            postContext.SaveChanges();
         }
 
-        public void DeletePost()
+        public List<Post> SearchPost(string title)
         {
-            throw new NotImplementedException();
+            var output = postContext.Posts.Where(t => t.Title.ToLower().Contains(title.ToLower())).ToList();
+            return output;
         }
 
-        public Post ReadPost()
+        public List<Post> ReadPost()
         {
-            throw new NotImplementedException();
+            return postContext.Posts.ToList();
         }
 
-        public List<Post> ReadPosts()
+        public void Update(Post post)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Update()
-        {
-            throw new NotImplementedException();
+            postContext.Posts.Update(post);
+            postContext.SaveChanges();
         }
     }
 }

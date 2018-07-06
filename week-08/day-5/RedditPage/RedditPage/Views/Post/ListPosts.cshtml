@@ -1,0 +1,19 @@
+﻿@model List<Post>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Reddit Page</title>
+</head>
+<body>
+    <a asp-controller="Post" asp-action="AddPost" style="font-size:25px">Submit a new post</a><br /><br/>
+    <form action="/GetPost" method="post" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" name="Title" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search Post</button>
+    </form><br />
+    <br />
+    <h2>Trending Posts</h2>
+</body>
+</html>
+
+
+

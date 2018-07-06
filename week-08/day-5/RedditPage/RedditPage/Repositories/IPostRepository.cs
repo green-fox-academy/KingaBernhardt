@@ -8,11 +8,10 @@ namespace RedditPage.Repositories
 {
     interface IPostRepository
     {
-        void CreatePost();
+        void CreatePost(Post post);
         List<Post> ReadPost();
         List<Post> SearchPost(string title);
         void DeletePost(int id);
         void Update(Post post);
-
     }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace RedditPage.Repositories
 {
-    interface IGenericRepository
+    interface IGenericRepository<Type>
     {
-        void CreatePost(Type element);
-        List<Type> ReadPost();
-        List<Type> SearchPost(Type element);
-        void DeletePost(Type element);
+        void Create(Type element);
+        List<Type> Read();
+        List<Type> Search(string title);
+        void Delete(int id);
         void Update(Type element);
     }
 }

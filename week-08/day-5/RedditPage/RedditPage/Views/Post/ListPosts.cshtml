@@ -19,12 +19,12 @@
     <table class="table table-striped table-hover ">
         <thead>
             <tr>
-                <th></th>
+                <th>Rating</th>
                 <th></th>
                 <th>Give Rating</th>
                 <th></th>
                 <th></th>
-                <th></th>
+                <th>Title</th>
                 <th></th>
             </tr>
         </thead>
@@ -34,11 +34,10 @@
             <tr>
                 <td>@post.Votes</td>
                 <td></td>
-                <td><link href="#" rel="stylesheet" /> + </td>
+                <td><form action="/@post.Id/Increase" method="post" name="id" ><button type="submit">+</button></form></td>
+                <td><form action="/@post.Id/Decrease" method="post" name="id"><button type="submit">-</button></form></td>
                 <td></td>
-                <td><link href="#" rel="stylesheet" /> - </td>
-                <td></td>
-                <td><link href="@post.PostUrl" rel="stylesheet" />>@post.Title</td>
+                <td><link href="@post.PostUrl" rel="stylesheet" />@post.Title</td>
             </tr>
             }
         </tbody>

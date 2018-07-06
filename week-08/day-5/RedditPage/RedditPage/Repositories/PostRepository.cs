@@ -17,6 +17,7 @@ namespace RedditPage.Repositories
         public void Create(Post post)
         {
             postContext.Posts.Add(post);
+            postContext.SaveChanges();
         }
 
         public void Delete(int id)
@@ -40,22 +41,6 @@ namespace RedditPage.Repositories
         public void Update(Post post)
         {
             postContext.Posts.Update(post);
-            postContext.SaveChanges();
-        }
-
-        public void IncreaseVote(int id)
-        {
-            var votedElement = postContext.Posts.FirstOrDefault(p => p.Id == id);
-            votedElement.Votes++;
-            postContext.Update(votedElement);
-            postContext.SaveChanges();
-        }
-
-        public void DecreaseVote(int id)
-        {
-            var votedElement = postContext.Posts.FirstOrDefault(p => p.Id == id);
-            votedElement.Votes--;
-            postContext.Update(votedElement);
             postContext.SaveChanges();
         }
     }

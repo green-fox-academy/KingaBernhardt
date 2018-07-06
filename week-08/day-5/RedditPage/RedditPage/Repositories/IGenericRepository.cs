@@ -13,7 +13,5 @@ namespace RedditPage.Repositories
         List<Type> Search(string title);
         void Delete(int id);
         void Update(Type element);
-        void IncreaseVote(int id);
-        void DecreaseVote(int id);
     }
 }

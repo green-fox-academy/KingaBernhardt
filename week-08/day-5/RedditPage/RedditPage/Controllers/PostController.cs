@@ -23,6 +23,20 @@ namespace RedditPage.Controllers
             return View(postService.ReadPosts());
         }
 
+        [HttpPost("{id}/Increase")]
+        public IActionResult Increase(int id)
+        {
+            postService.IncreaseVote(id);
+            return RedirectToAction("ListPosts");
+        }
+
+        [HttpPost("{id}/Decrease")]
+        public IActionResult Decrease(int id)
+        {
+            postService.DecreaseVote(id);
+            return RedirectToAction("ListPosts");
+        }
+
         [HttpGet("/AddPost")]
         public IActionResult AddPost()
         {

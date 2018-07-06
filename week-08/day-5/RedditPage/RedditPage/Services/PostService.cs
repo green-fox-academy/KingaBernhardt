@@ -21,17 +21,21 @@ namespace RedditPage.Services
 
         public void DecreaseVote(int id)
         {
-            postRepo.DecreaseVote(id);
+            var chosenElement = postRepo.Read().FirstOrDefault(p => p.Id == id);
+            chosenElement.Votes--;
+            postRepo.Update(chosenElement);
+        }
+
+        public void IncreaseVote(int id)
+        {
+            var chosenElement = postRepo.Read().FirstOrDefault(p => p.Id == id);
+            chosenElement.Votes++;
+            postRepo.Update(chosenElement);
         }
 
         public void DeletePost(int id)
         {
             postRepo.Delete(id);
-        }
-
-        public void IncreaseVote(int id)
-        {
-            postRepo.IncreaseVote(id);
         }
 
         public List<Post> ReadPosts()

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace ListingTodos.Repository
@@ -17,7 +18,8 @@ namespace ListingTodos.Repository
 
         public List<Todo> GetList()
         {
-            return todoContext.ToDos.ToList();
+            var output = todoContext.ToDos.Include(x => x.Assigne);
+            return output.ToList();
         }
 
         public void Add(Todo todo)

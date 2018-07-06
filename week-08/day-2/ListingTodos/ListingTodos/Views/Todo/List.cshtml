@@ -10,7 +10,7 @@
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
     </form><br/>
     <a asp-controller="todo" asp-action="AddTodo" style="font-size:25px">Click to add new Todo</a><br/>
-    <a asp-controller="Assigne" asp-action="AddAssigne" style="font-size:25px">Click to add Assigne</a><br/>
+    <a asp-controller="Assigne" asp-action="AddAssigne" style="font-size:25px">Click to add Assignee</a><br/>
     <table class="table table-striped table-hover ">
         <thead>
             <tr>
@@ -31,7 +31,7 @@
                 <td>@todo.Id</td>
                 <td>@todo.Title</td>
                 <td>@todo.CreationDate</td>
-                <td>@todo.Assigne</td>
+                <td>@todo.Assigne.Name</td>
                 @if (!todo.IsUrgent)
                 {
                     <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>

@@ -36,5 +36,7 @@ namespace RedditPage.Controllers
             postService.CreatPost(post);
             return RedirectToAction("ListPosts");
         }
+
+
     }
 }

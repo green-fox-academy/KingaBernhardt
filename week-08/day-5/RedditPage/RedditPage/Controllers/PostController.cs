@@ -3,25 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using RedditPage.Models;
+using RedditPage.Services;
 
 namespace RedditPage.Controllers
 {
     [Route("")]
     public class PostController : Controller
     {
-        public IActionResult ListPost()
+        private IService postService;
+        public PostController(IService postService)
         {
-            return View("ListPosts");
+            this.postService = postService;
         }
 
-        public IActionResult GetPost()
+        [Route("/ListPosts")]
+        public IActionResult ListPosts()
         {
-            return View();
+            return View(postService.ReadPosts());
         }
 
+        [HttpGet("/AddPost")]
         public IActionResult AddPost()
         {
-            return View();
+
+            return View("Add");
+        }
+
+        [HttpPost("/AddPost")]
+        public IActionResult AddPost(Post post)
+        {
+            postService.CreatPost(post);
+            return RedirectToAction("ListPosts");
         }
     }
 }

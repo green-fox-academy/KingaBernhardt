@@ -7,38 +7,66 @@ using Microsoft.AspNetCore.Mvc;
 namespace Frontend.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class HomeController : Controller
     {
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        [Route("/")]
+        public IActionResult Index()
         {
-            return new string[] { "value1", "value2" };
+            return File("index.html", "text/html");
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("/Doubling")]
+        public IActionResult Doubling(int? input)
         {
-            return "value";
+            if (input == null)
+            {
+                return new JsonResult(new
+                {
+                    error = "Please provide an input!"
+                });
+            }
+            else
+            {
+                return new JsonResult(new
+                {
+                    received = input,
+                    result = input * 2
+                });
+            }
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
+        [HttpGet("/greeter")]
+        public IActionResult Greeter(string name, string title)
         {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            if (name == null && title == null)
+            {
+                return new JsonResult(
+                    new
+                    {
+                        error = "Please provide a name and a title."
+                    });
+            }
+            else if (name == null)
+            {
+                return new JsonResult(new
+                {
+                    error = "Please provide a name."
+                });
+            }
+            else if (title == null)
+            {
+                return new JsonResult(new
+                {
+                    error = "Please provide a title."
+                });
+            }
+            else
+            {
+                return new JsonResult(new
+                {
+                    welcome_message = "Oh, hi there " + name + ", my dear " + title + "!"
+                });
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using ListingTodos.Models;
@@ -37,7 +38,7 @@ namespace ListingTodos.Controllers
         public IActionResult AddAssigne(Assigne assigne)
         {
             todoService.AddAssigne(assigne);
-            return RedirectToAction("ListAssigne");
+            return Redirect("ListAssigne");
         }
 
         [HttpGet("/{id}/deleteAssigne")]

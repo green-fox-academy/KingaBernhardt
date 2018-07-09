@@ -17,6 +17,7 @@ namespace ListingTodos.Repository
         public void Add(Assigne assigne)
         {
             todoCon.Assignes.Add(assigne);
+            todoCon.SaveChanges();
         }
 
         public void Edit(Assigne assigne)

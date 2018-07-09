@@ -2,6 +2,7 @@
 using ListingTodos.Repository;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,6 +20,7 @@ namespace ListingTodos.Services
 
         public void AddAssigne(Assigne assigne)
         {
+            Debug.Print("Kinga" + assigne.ToString());
             assigneRepository.Add(assigne);
         }
 

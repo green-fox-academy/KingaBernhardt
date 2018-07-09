@@ -35,7 +35,7 @@ namespace Frontend.Controllers
             }
         }
 
-        [HttpGet("/greeter")]
+        [HttpGet("/Greeter")]
         public IActionResult Greeter(string name, string title)
         {
             if (name == null && title == null)
@@ -68,5 +68,29 @@ namespace Frontend.Controllers
                 });
             }
         }
+        [HttpGet("/Appenda/{appendable}")]
+        public IActionResult Appenda(string appendable)
+        {
+            if (appendable == null)
+            {
+                return RedirectToAction("Error");
+            }
+            else
+            {
+                return new JsonResult(new
+                {
+                    appended = appendable + "a"
+                });
+            }
+        }
+        public IActionResult Error()
+        {
+            return new JsonResult(new
+            {
+                StatusCode = 404,
+                Status = "NotFound"
+            });
+        }
     }
 }
+

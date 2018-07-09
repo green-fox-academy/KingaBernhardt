@@ -6,10 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Frontend.Controllers
 {
-    [Route("api/[controller]")]
     public class HomeController : Controller
     {
-        [Route("/")]
+        [HttpGet]
         public IActionResult Index()
         {
             return File("index.html", "text/html");
@@ -71,26 +70,20 @@ namespace Frontend.Controllers
         [HttpGet("/Appenda/{appendable}")]
         public IActionResult Appenda(string appendable)
         {
-            if (appendable == null)
+            return new JsonResult(new
             {
-                return RedirectToAction("Error");
-            }
-            else
-            {
-                return new JsonResult(new
-                {
-                    appended = appendable + "a"
-                });
-            }
+                appended = appendable + "a"
+            });
         }
-        public IActionResult Error()
+
+        /*[HttpPost("/dountil/{what}")]
+        public IActionResult Dountil()
         {
             return new JsonResult(new
             {
-                StatusCode = 404,
-                Status = "NotFound"
+               until: 15
             });
-        }
+        }*/
     }
 }
 

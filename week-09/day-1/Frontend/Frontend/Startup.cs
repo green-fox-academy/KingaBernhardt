@@ -37,8 +37,6 @@ namespace Frontend
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseMvc();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Frontend.Models.ArrayModel;
+using Frontend.Models.DoUntil;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Frontend.Controllers
@@ -78,15 +79,16 @@ namespace Frontend.Controllers
         }
 
         [HttpPost("/dountil/{what}")]
-        public IActionResult Dountil(string what, [FromBody] int body)
+        public IActionResult Dountil(string what, [FromBody] Dountil until)
         {
             if (what == "sum" )
             {
                 int result = 0;
-                for (int i = 0; i < body; i++)
+                for (int i = 0; i < until.Until; i++)
                 {
                     result += i;
                 }
+                
                 return new JsonResult(new
                 {
                     result
@@ -94,12 +96,13 @@ namespace Frontend.Controllers
             }
             else if (what =="factor")
             {
-                int result = 0;
-                for (int i = 1; i <= body; i++)
+                int result = 1;
+                for (int i = 1; i <= until.Until; i++)
                 {
                     result *= i;
                 }
-                return new JsonResult(new
+                
+                return new JsonResult (new
                 {
                     result
                 });

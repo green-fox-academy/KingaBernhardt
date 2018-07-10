@@ -1,6 +1,7 @@
 using FrontEndWithTest;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using Newtonsoft.Json;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -26,6 +27,34 @@ namespace FrontEndTestPart
             var response = await Client.GetAsync("/Doubling");
             var statusCode = response.StatusCode;
             Assert.Equal(HttpStatusCode.OK, statusCode);
+        }
+
+        [Fact]
+        public async Task ShouldGetBadReq()
+        {
+            var response = await Client.GetAsync("/Doublingo");
+            var statusCode = response.StatusCode;
+            Assert.Equal(HttpStatusCode.NotFound, statusCode);
+        }
+
+        [Theory]
+        [InlineData(15)]
+        [InlineData(40)]
+        public async Task ShouldGetDoubledAmount(int? input)
+        {
+            var response = await Client.GetAsync("/Doubling?input=" + input);
+            Assert.Equal(JsonConvert.SerializeObject(new { received = input, result = input * 2 }),
+                response.Content.ReadAsStringAsync().Result);
+        }
+
+        [Theory]
+        [InlineData("Kinga", "student")]
+        [InlineData("Nori", "teacher")]
+        public async Task ShouldGetSameText(string name, string title)
+        {
+            var response = await Client.GetAsync($"/Greeter?name={name}&title={title}");
+            Assert.Equal(JsonConvert.SerializeObject(new { welcome_message = "Oh, hi there " + name + ", my dear " + title + "!" }),
+                response.Content.ReadAsStringAsync().Result);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace ListingTodos.Models
 
         public override string ToString()
         {
-            return Id + " " + Name + " " + Email;
+            return String.Format(Id + " " + Name + " " + Email);
         }
     }
 }

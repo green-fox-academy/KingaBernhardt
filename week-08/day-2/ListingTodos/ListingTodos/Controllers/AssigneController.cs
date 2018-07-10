@@ -38,7 +38,7 @@ namespace ListingTodos.Controllers
         public IActionResult AddAssigne(Assigne assigne)
         {
             todoService.AddAssigne(assigne);
-            return Redirect("ListAssigne");
+            return RedirectToAction("/ListAssigne");
         }
 
         [HttpGet("/{id}/deleteAssigne")]

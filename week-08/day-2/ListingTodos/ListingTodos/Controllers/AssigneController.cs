@@ -66,9 +66,5 @@ namespace ListingTodos.Controllers
         {
             return View("AssigneList", todoService.GetSearchedAssigne(Name));
         }
-
-
-
-
     }
 }

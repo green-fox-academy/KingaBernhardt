@@ -56,5 +56,18 @@ namespace RedditPage.Controllers
         {
             return View("ListPosts", postService.SearchPost(title));
         }
+
+        [HttpGet("Login")]
+        public IActionResult Login()
+        {
+            return View("Login");
+        }
+
+        [HttpPost]
+        public IActionResult Login(string name)
+        {
+
+            return RedirectToAction("AddPost");
+        }
     }
 }

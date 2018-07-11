@@ -9,7 +9,7 @@ namespace RedditPage.Models
     public class PostDbContext : DbContext
     {
         public DbSet<Post> Posts { get; set; }
-
+        public DbSet<User> Users { get; set; }
         public PostDbContext(DbContextOptions<PostDbContext> options) : base(options)
         {
 

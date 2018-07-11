@@ -1,12 +1,15 @@
 ﻿
 <div style="text-align:center">
-    <h2>Submit a new post</h2>
-    <br/>
+    <h2>Do you want to submit a new post?</h2>
+    <br />
+    <a asp-controller="post" asp-action="ListPosts" style="font-size:25px">If not, click to go to Posts</a><br />
     <form action="/AddPost" method="post">
+        <label>User name</label>
+        <input type="text" name="UserName" value="" />
         <label>Title:</label>
-        <input type="text" name="Title" value="title" /><br /><br/>
+        <input type="text" name="Title" value="" placeholder="title" /><br /><br />
         <label>URL</label>
-        <input type="text" name="PostUrl" value="url" />
+        <input type="text" name="PostUrl" value="" placeholder="Url" />
         <button type="submit">Submit</button>
     </form>
 </div>

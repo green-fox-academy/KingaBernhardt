@@ -1,4 +1,5 @@
-﻿using RedditPage.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using RedditPage.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace RedditPage.Repositories
         private PostDbContext postDbContext;
         public UserRepository(PostDbContext postDbContext)
         {
-            postDbContext = postDbContext;
+            this.postDbContext = postDbContext;
         }
 
         public void Create(User user)
@@ -29,7 +30,7 @@ namespace RedditPage.Repositories
 
         public List<User> Read()
         {
-            return postDbContext.Users.ToList();
+            return postDbContext.Users.Include(x=>x.UserPosts).ToList();
         }
 
         public List<User> Search(string userName)

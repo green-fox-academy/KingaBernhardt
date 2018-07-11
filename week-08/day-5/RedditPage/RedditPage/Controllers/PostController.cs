@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RedditPage.Models;
 using RedditPage.Services;
+using RedditPage.ViewModel;
 
 namespace RedditPage.Controllers
 {
@@ -20,7 +21,10 @@ namespace RedditPage.Controllers
         [Route("/ListPosts")]
         public IActionResult ListPosts()
         {
-            return View(postService.ReadPosts());
+            return View(new RedditViewModel()
+            { Posts=postService.ReadPosts(),
+              Users =postService.ReadUsers()
+            });
         }
 
         [HttpPost("{id}/Increase")]
@@ -40,7 +44,6 @@ namespace RedditPage.Controllers
         [HttpGet("/AddPost")]
         public IActionResult AddPost()
         {
-
             return View("Add");
         }
 
@@ -63,7 +66,7 @@ namespace RedditPage.Controllers
             return View("Login");
         }
 
-        [HttpPost]
+        [HttpPost("Login")]
         public IActionResult Login(User user)
         {
             postService.CreateUser(user);

@@ -10,8 +10,8 @@ using RedditPage.Models;
 namespace RedditPage.Migrations
 {
     [DbContext(typeof(PostDbContext))]
-    [Migration("20180711082542_DateAdd")]
-    partial class DateAdd
+    [Migration("20180711101857_ICollection")]
+    partial class ICollection
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,11 +33,37 @@ namespace RedditPage.Migrations
 
                     b.Property<string>("Title");
 
+                    b.Property<int?>("UserOfPostId");
+
                     b.Property<int>("Votes");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserOfPostId");
+
                     b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("RedditPage.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("UserEmail");
+
+                    b.Property<string>("UserName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("RedditPage.Models.Post", b =>
+                {
+                    b.HasOne("RedditPage.Models.User", "UserOfPost")
+                        .WithMany("UserPosts")
+                        .HasForeignKey("UserOfPostId");
                 });
 #pragma warning restore 612, 618
         }

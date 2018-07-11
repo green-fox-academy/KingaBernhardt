@@ -1,4 +1,5 @@
-﻿using RedditPage.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using RedditPage.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace RedditPage.Repositories
 
         public void Create(Post post)
         {
+            post.UserOfPost = postContext.Users.FirstOrDefault(x => x.Id == post.UserOfPost.Id);
             postContext.Posts.Add(post);
             postContext.SaveChanges();
         }
@@ -35,7 +37,7 @@ namespace RedditPage.Repositories
 
         public List<Post> Read()
         {
-            return postContext.Posts.ToList();
+            return postContext.Posts.Include(x=>x.UserOfPost).ToList();
         }
 
         public void Update(Post post)

@@ -9,6 +9,6 @@ namespace RedditPage.ViewModel
     public class RedditViewModel
     {
         public List<Post> Posts { get; set; }
-        public User Users { get; set; }
+        public List<User> Users { get; set; }
     }
 }

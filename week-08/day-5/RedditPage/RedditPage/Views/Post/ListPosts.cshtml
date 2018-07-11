@@ -1,4 +1,4 @@
-﻿@model List<Post>
+﻿@model RedditPage.ViewModel.RedditViewModel
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,10 +7,7 @@
 <body>
     <br />
     <a asp-controller="Post" asp-action="AddPost" style="font-size:25px">Submit a new post</a><br /><br />
-    <form action="/GetPost" method="post" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" name="Title" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search Post</button>
-    </form><br />
+    <a asp-controller="Post" asp-action="Login" style="font-size:25px">Register a new user</a><br />
     <br />
     <h2>Trending Posts</h2>
     <br />
@@ -26,20 +23,24 @@
                 <th></th>
                 <th>Title</th>
                 <th>Date Posted</th>
+                <th>User</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var post in Model)
+            @foreach (var post in Model.Posts)
             {
-            <tr>
-                <td>@post.Votes</td>
-                <td></td>
-                <td><form action="/@post.Id/Increase" method="post" name="id" ><button type="submit">+</button></form></td>
-                <td><form action="/@post.Id/Decrease" method="post" name="id"><button type="submit">-</button></form></td>
-                <td></td>
-                <td><link href="@post.PostUrl" rel="stylesheet" />@post.Title</td>
-                <td>@post.Date</td>
-            </tr>
+                <tr>
+                    <td>@post.Votes</td>
+                    <td></td>
+                    <td><form action="/@post.Id/Increase" method="post" name="id"><button type="submit">+</button></form></td>
+                    <td><form action="/@post.Id/Decrease" method="post" name="id"><button type="submit">-</button></form></td>
+                    <td></td>
+                    <td><link href="@post.PostUrl" rel="stylesheet" />@post.Title</td>
+                    <td>@post.Date</td>
+                    <td>
+                        @post.UserOfPost.UserName
+                    </td>
+                </tr>
             }
         </tbody>
     </table>

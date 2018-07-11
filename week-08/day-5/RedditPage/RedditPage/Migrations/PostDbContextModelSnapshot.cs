@@ -54,7 +54,7 @@ namespace RedditPage.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("RedditPage.Models.Post", b =>

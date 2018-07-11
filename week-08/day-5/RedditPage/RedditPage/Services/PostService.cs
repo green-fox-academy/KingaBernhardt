@@ -10,9 +10,11 @@ namespace RedditPage.Services
     public class PostService : IService
     {
         private PostRepository postRepo;
-        public PostService(PostRepository postRepo)
+        private UserRepository userRepo;
+        public PostService(PostRepository postRepo, UserRepository userRepo)
         {
             this.postRepo = postRepo;
+            this.userRepo = userRepo;
         }
         public void CreatPost(Post post)
         {
@@ -51,6 +53,31 @@ namespace RedditPage.Services
         public void UpdatePost(Post post)
         {
             postRepo.Update(post);
+        }
+
+        public void UpdateUser(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<User> SearchUser(string userName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<User> ReadUsers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteUser(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateUser(User user)
+        {
+            throw new NotImplementedException();
         }
     }
 }

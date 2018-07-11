@@ -15,5 +15,11 @@ namespace RedditPage.Services
         void UpdatePost(Post post);
         void IncreaseVote(int id);
         void DecreaseVote(int id);
+
+        void UpdateUser(User user);
+        List<User> SearchUser(string userName);
+        List<User> ReadUsers();
+        void DeleteUser(int id);
+        void CreateUser(User user);
     }
 }

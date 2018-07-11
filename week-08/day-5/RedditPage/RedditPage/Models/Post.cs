@@ -11,5 +11,6 @@ namespace RedditPage.Models
         public int Votes { get; set; }
         public string Title { get; set; }
         public string PostUrl { get; set; }
+        public DateTime Date { get; set; }
     }
 }

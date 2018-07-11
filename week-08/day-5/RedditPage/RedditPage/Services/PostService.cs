@@ -16,6 +16,7 @@ namespace RedditPage.Services
             this.postRepo = postRepo;
             this.userRepo = userRepo;
         }
+
         public void CreatPost(Post post)
         {
             postRepo.Create(post);
@@ -57,27 +58,27 @@ namespace RedditPage.Services
 
         public void UpdateUser(User user)
         {
-            throw new NotImplementedException();
+            userRepo.Update(user);
         }
 
         public List<User> SearchUser(string userName)
         {
-            throw new NotImplementedException();
+            return userRepo.Search(userName);
         }
 
         public List<User> ReadUsers()
         {
-            throw new NotImplementedException();
+            return userRepo.Read();
         }
 
         public void DeleteUser(int id)
         {
-            throw new NotImplementedException();
+            userRepo.Delete(id);
         }
 
         public void CreateUser(User user)
         {
-            throw new NotImplementedException();
+            userRepo.Create(user);
         }
     }
 }

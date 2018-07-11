@@ -64,9 +64,9 @@ namespace RedditPage.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string name)
+        public IActionResult Login(User user)
         {
-
+            postService.CreateUser(user);
             return RedirectToAction("AddPost");
         }
     }

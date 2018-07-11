@@ -6,43 +6,42 @@ using System.Threading.Tasks;
 
 namespace RedditPage.Repositories
 {
-    public class UserRepository :IGenericRepository<User>
+    public class UserRepository : IGenericRepository<User>
     {
-        private PostDbContext postContext;
-
-        public UserRepository(PostDbContext postContext)
+        private PostDbContext postDbContext;
+        public UserRepository(PostDbContext postDbContext)
         {
-            postContext = postContext;
+            postDbContext = postDbContext;
         }
 
         public void Create(User user)
         {
-            postContext.Users.Add(user);
-            postContext.SaveChanges();
+            postDbContext.Users.Add(user);
+            postDbContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var removableUser = postContext.Users.ToList().FirstOrDefault(p => p.Id == id);
-            postContext.Remove(removableUser);
-            postContext.SaveChanges();
+            var removableUser = postDbContext.Users.ToList().FirstOrDefault(p => p.Id == id);
+            postDbContext.Remove(removableUser);
+            postDbContext.SaveChanges();
         }
 
         public List<User> Read()
         {
-            return postContext.Users.ToList();
+            return postDbContext.Users.ToList();
         }
 
         public List<User> Search(string userName)
         {
-            var output = postContext.Users.Where(t => t.UserName.ToLower().Contains(userName.ToLower())).ToList();
+            var output = postDbContext.Users.Where(t => t.UserName.ToLower().Contains(userName.ToLower())).ToList();
             return output;
         }
 
         public void Update(User user)
         {
-            postContext.Users.Update(user);
-            postContext.SaveChanges();
+            postDbContext.Users.Update(user);
+            postDbContext.SaveChanges();
         }
     }
 }

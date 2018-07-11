@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RedditPage.Repositories
 {
-    interface IGenericRepository<Type>
+    public interface IGenericRepository<Type>
     {
         void Create(Type element);
         List<Type> Read();

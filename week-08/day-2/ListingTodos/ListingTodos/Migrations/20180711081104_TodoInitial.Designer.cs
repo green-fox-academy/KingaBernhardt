@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ListingTodos.Migrations
 {
     [DbContext(typeof(TodoContext))]
-    [Migration("20180705150135_TodoServicesInitial")]
-    partial class TodoServicesInitial
+    [Migration("20180711081104_TodoInitial")]
+    partial class TodoInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,8 +26,6 @@ namespace ListingTodos.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate");
 
                     b.Property<string>("Email");
 
@@ -44,26 +42,28 @@ namespace ListingTodos.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<long?>("AssigneId");
+
+                    b.Property<DateTime>("CreationDate");
+
                     b.Property<bool>("IsDone");
 
                     b.Property<bool>("IsUrgent");
 
                     b.Property<string>("Title");
 
-                    b.Property<long?>("assigneId");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("assigneId");
+                    b.HasIndex("AssigneId");
 
                     b.ToTable("ToDos");
                 });
 
             modelBuilder.Entity("ListingTodos.Models.Todo", b =>
                 {
-                    b.HasOne("ListingTodos.Models.Assigne", "assigne")
+                    b.HasOne("ListingTodos.Models.Assigne", "Assigne")
                         .WithMany("Todos")
-                        .HasForeignKey("assigneId");
+                        .HasForeignKey("AssigneId");
                 });
 #pragma warning restore 612, 618
         }

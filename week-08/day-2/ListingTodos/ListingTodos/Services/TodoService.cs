@@ -20,7 +20,6 @@ namespace ListingTodos.Services
 
         public void AddAssigne(Assigne assigne)
         {
-            Debug.Print("Kinga" + assigne.ToString());
             assigneRepository.Add(assigne);
         }
 

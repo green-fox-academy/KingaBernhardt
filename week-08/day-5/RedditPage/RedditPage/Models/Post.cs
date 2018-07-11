@@ -12,5 +12,6 @@ namespace RedditPage.Models
         public string Title { get; set; }
         public string PostUrl { get; set; }
         public DateTime Date { get; set; }
+        public User UserOfPost { get; set; }
     }
 }

@@ -51,6 +51,10 @@ namespace RedditPage.Controllers
             return RedirectToAction("ListPosts");
         }
 
-
+        [HttpPost("GetPost")]
+        public IActionResult GetPost(string title)
+        {
+            return View("ListPosts", postService.SearchPost(title));
+        }
     }
 }

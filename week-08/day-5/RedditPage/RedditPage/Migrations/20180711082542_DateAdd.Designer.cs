@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RedditPage.Models;
 
 namespace RedditPage.Migrations
 {
     [DbContext(typeof(PostDbContext))]
-    partial class PostDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180711082542_DateAdd")]
+    partial class DateAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,35 +33,11 @@ namespace RedditPage.Migrations
 
                     b.Property<string>("Title");
 
-                    b.Property<int?>("UserOfPostId");
-
                     b.Property<int>("Votes");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserOfPostId");
-
                     b.ToTable("Posts");
-                });
-
-            modelBuilder.Entity("RedditPage.Models.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("UserName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("User");
-                });
-
-            modelBuilder.Entity("RedditPage.Models.Post", b =>
-                {
-                    b.HasOne("RedditPage.Models.User", "UserOfPost")
-                        .WithMany("UserPosts")
-                        .HasForeignKey("UserOfPostId");
                 });
 #pragma warning restore 612, 618
         }

@@ -25,7 +25,7 @@
                 <th></th>
                 <th></th>
                 <th>Title</th>
-                <th></th>
+                <th>Date Posted</th>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +38,7 @@
                 <td><form action="/@post.Id/Decrease" method="post" name="id"><button type="submit">-</button></form></td>
                 <td></td>
                 <td><link href="@post.PostUrl" rel="stylesheet" />@post.Title</td>
+                <td>@post.Date</td>
             </tr>
             }
         </tbody>

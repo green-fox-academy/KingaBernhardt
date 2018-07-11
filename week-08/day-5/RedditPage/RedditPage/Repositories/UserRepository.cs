@@ -33,14 +33,16 @@ namespace RedditPage.Repositories
             return postContext.Users.ToList();
         }
 
-        public List<User> Search(string title)
+        public List<User> Search(string userName)
         {
-            throw new NotImplementedException();
+            var output = postContext.Users.Where(t => t.UserName.ToLower().Contains(userName.ToLower())).ToList();
+            return output;
         }
 
-        public void Update(User element)
+        public void Update(User user)
         {
-            throw new NotImplementedException();
+            postContext.Users.Update(user);
+            postContext.SaveChanges();
         }
     }
 }

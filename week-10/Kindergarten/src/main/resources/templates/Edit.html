@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Change details of a child</title>
+</head>
+<body>
+<form th:action="'/' + ${aChild.getId()} + '/edit'" class="form-inline" method="POST" th:object="${aChild}">
+    <div>
+        <label for="name">His/Her name:</label>
+        <input type="text" name="name" id="name" th:field="${aChild.name}"/>
+    </div>
+    <div>
+        <label for="name">His/Her age:</label>
+        <input type="number" name="age" id="age" th:field="${aChild.age}"/>
+    </div>
+    <div>
+        <label for="sign">His/Her sign:</label>
+        <input type="text" name="sign" id="sign" th:field="${aChild.sign}"/>
+    </div>
+    <input type="submit" value="edit">
+</form>
+</body>
+</html>

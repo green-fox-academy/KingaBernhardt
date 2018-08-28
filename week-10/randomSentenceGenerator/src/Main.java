@@ -1,8 +1,8 @@
 public class Main {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        Random generatorClass = new Random();
-        System.out.println(generatorClass.generator());
-    }
+    Random generatorClass = new Random();
+    System.out.println(generatorClass.generator());
+  }
 }

@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
-    @RequestMapping(value="/hello")
-    @ResponseBody
-    public String Index(){
-        return "Hello World";
-    }
+  @RequestMapping(value = "/hello")
+  @ResponseBody
+  public String Index() {
+    return "Hello World";
+  }
 }

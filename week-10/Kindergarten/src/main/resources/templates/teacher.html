@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Our school Teachers List</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Teacher Name:</th>
+        <th>Class Name</th>
+        <th>Class Size</th>
+        <th>Children list</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="teacher : ${teachers}">
+        <td th:text="${teacher.getName()}"></td>
+        <td th:text="${teacher.getClassName()}"></td>
+        <td th:text="${teacher.getClassSize()}"></td>
+        <td th:text="${teacher.getChildren}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

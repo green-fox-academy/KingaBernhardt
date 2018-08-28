@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Kindergarten</title>
+</head>
+<body>
+<div class="col-xs-12" style="height:80px;"></div>
+<h1>Children list</h1>
+<table class="table table-striped table-hover" border="1">
+    <thead>
+    <tr>
+        <th class="text-center">Name</th>
+        <th class="text-center">Age</th>
+        <th class="text-center">Sign</th>
+        <th class="text-center">Delete</th>
+        <th class="text-center">Edit</th>
+        <th>Father's Name</th>
+        <th>Mother's Name</th>
+        <th>Teachers</th>
+        <th>Class</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="child : ${children}" th:object="${child}">
+        <td th:text="${child.name}"></td>
+        <td th:text="${child.age}"></td>
+        <td th:text="${child.getSign()}"></td>
+        <td><a th:href="@{${child.getId()} + '/delete'}" role="button">Delete</a></td>
+        <td><a th:href="@{${child.getId()} + '/edit'}" role="button">Edit</a></td>
+        <td th:text="${child.getParent() != null} ? ${child.getParent().getFatherName()} : 'Does not have father'"></td>
+        <td th:text="${child.getParent() != null} ? ${child.getParent().getMotherName()} : 'Does not have mother'"></td>
+        <td th:text="${child.getTeachers().size() >= 1} ? ${child.getTeachers().get().getName()} : ''"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

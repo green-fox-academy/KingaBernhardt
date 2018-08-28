@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Addresses</title>
+</head>
+<body>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Father name</th>
+        <th scope="col">Mother name</th>
+        <th scope="col">City</th>
+        <th scope="col">Street</th>
+        <th scope="col">ZipCode</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-active" th:each=" address : ${addresses}">
+        <th scope="row" th:text="${address.getParent().getFatherName()}"></th>
+        <th scope="row" th:text="${address.getParent().getMotherName()}"></th>
+        <td th:text="${address.getCity()}"></td>
+        <td th:text="${address.getStreet()}"></td>
+        <td th:text="${address.getZipCode()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

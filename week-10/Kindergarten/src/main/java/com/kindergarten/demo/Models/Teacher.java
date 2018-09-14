@@ -1,10 +1,17 @@
 package com.kindergarten.demo.Models;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@NoArgsConstructor
+@Setter
+@Getter
 public class Teacher {
 
   @Id
@@ -14,53 +21,9 @@ public class Teacher {
   private String className;
   private Integer classSize;
 
-  @ManyToMany(mappedBy = "teachers")
-  private List<Child> children = new ArrayList<>();
-
-  public Teacher(String name, String className, Integer classSize, List<Child> children) {
+  public Teacher(String name, String className, Integer classSize) {
     this.name = name;
     this.className = className;
     this.classSize = classSize;
-    this.children = children;
-  }
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getClassName() {
-    return className;
-  }
-
-  public void setClassName(String className) {
-    this.className = className;
-  }
-
-  public Integer getClassSize() {
-    return classSize;
-  }
-
-  public void setClassSize(Integer classSize) {
-    this.classSize = classSize;
-  }
-
-  public List<Child> getChildren() {
-    return children;
-  }
-
-  public void setChildren(List<Child> children) {
-    this.children = children;
   }
 }

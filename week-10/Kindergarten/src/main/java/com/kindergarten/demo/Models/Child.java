@@ -14,9 +14,6 @@ public class Child {
   private Integer age;
   private String sign;
 
-  @ManyToOne
-  private Parent parent;
-
   @ManyToMany
   private List<Teacher> teachers = new ArrayList<>();
 

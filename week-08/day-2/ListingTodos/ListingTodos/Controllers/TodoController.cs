@@ -18,10 +18,10 @@ namespace ListingTodos.Controllers
             this.todoService = todoService;
         }
 
-        [Route("/List")]
+        [HttpGet("/List")]
         public IActionResult List()
         {
-            return View(todoService.GetTodoList());
+            return View("List", todoService.GetTodoList());
         }
 
         [HttpGet("/AddTodo")]

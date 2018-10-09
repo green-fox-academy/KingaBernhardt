@@ -19,7 +19,7 @@ public class ChildController {
     this.childService = childService;
   }
 
-  @GetMapping("/")
+  @GetMapping("/list")
   public String list(Model model) {
     model.addAttribute("children", childService.getAllChildren());
     return "List";

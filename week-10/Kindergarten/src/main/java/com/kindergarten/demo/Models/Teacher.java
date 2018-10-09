@@ -17,13 +17,16 @@ public class Teacher {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-  private String name;
-  private String className;
-  private Integer classSize;
+  private String firstName;
+  private String lastName;
+  private String aboutMe;
+  @OneToOne
+  private Group group;
 
-  public Teacher(String name, String className, Integer classSize) {
-    this.name = name;
-    this.className = className;
-    this.classSize = classSize;
+  public Teacher(String firstName, String lastName,String aboutMe, Group group) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.aboutMe = aboutMe;
+    this.group = group;
   }
 }

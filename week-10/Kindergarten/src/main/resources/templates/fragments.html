@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet">
+</head>
+<body>
+<header th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="logo">
+            <img class="header-img" src="/greenfox.png">
+            <a class="navbar-brand"> devma </a>
+        </div>
+        <div  class="collapse navbar-collapse" id="navbarColor03"></div>
+        <div class="user-profile-container">
+            <div class="dropdown">
+                <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" th:text="${user.firstName} + ' ' + ${user.lastName}"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a class="element" href="/index">Home page</a></li>
+                    <li><a class="element" href="/teacher">Our Teachers</a></li>
+                    <li><a class="element" href="/groups">Our Groups</a></li>
+                    <li><a class="element" href="/contact">Contact us</a></li>
+                    <li><a class="element" href="/logout">Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div th:fragment="teacherTile">
+    <p>I am XY. I work...</p>
+</div>
+<div class="group-ticket" th:fragment="groupTile(group, currentUser)">
+    <p class="group-name" th:text="${group.name}"></p>
+    <div class="apprentice-description">
+        <div class="apprentice-data-container" >
+            <p th:text="{group.information} + {group.size}"></p>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>

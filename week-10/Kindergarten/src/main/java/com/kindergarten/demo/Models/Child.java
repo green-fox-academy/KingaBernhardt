@@ -19,15 +19,17 @@ public class Child {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
   private String name;
-  private Integer age;
+  private String birthdate;
   private String sign;
-
-  @ManyToMany
+  @OneToOne
+  private Group group;
+  
+  @OneToMany
   private List<Teacher> teachers = new ArrayList<>();
   
-  public Child(String name, Integer age, String sign) {
+  public Child(String name, String birthdate, String sign) {
     this.name = name;
-    this.age = age;
+    this.birthdate = birthdate;
     this.sign = sign;
   }
 }
